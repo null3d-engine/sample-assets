@@ -25,16 +25,6 @@ Each asset is under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/
 
 If you copy an asset from this repository, keep its row: the title, the authors, the source link, the licence and the changes.
 
-These assets were left out on purpose:
-
-| Asset | Reason |
-| --- | --- |
-| BrainStem, Sponza, VirtualCity, DamagedHelmet, Duck (Khronos) | Their licences do not allow redistribution and commercial use, or they have a non-commercial part |
-| Mixamo characters | Adobe's terms do not allow redistribution of the files |
-| CesiumMan, CompareBaseColor (Khronos) | They carry logos under trademark terms beyond CC BY. RiggedFigure and Fox cover the same skinning cases |
-| DragonAttenuation (Khronos) | The dragon is under the Stanford Graphics licence, which is not CC0 or CC BY |
-| Larger Khronos showcase models | No test needs them, and they would add size |
-
 ## Rules
 
 `bun scripts/manifest.ts` checks these rules. A workflow runs it on every push and pull request.
