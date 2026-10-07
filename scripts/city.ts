@@ -49,16 +49,17 @@ const chance = (p: number) => rand() < p;
 const fixed = (x: number, digits: number) => Number(x.toFixed(digits));
 const quarterTurn = (a: number) => fixed(Math.round(a / (Math.PI / 2)) * (Math.PI / 2), 4);
 
-// Models: each Kenney GLB file that the layout uses, with its size from the position bounds.
+// Models: each Kenney GLB file that the layout uses, with its size from the position bounds, and
+// its reach: how far its footprint lies from its origin in any turn.
 const KITS = ['commercial', 'suburban', 'roads', 'industrial'] as const;
 type Kit = (typeof KITS)[number];
 const models: string[] = [];
 const modelSize: [number, number, number][] = [];
+const modelReach: number[] = [];
 const modelIndex = new Map<string, number>();
 
-function modelBounds(path: string): [number, number, number] {
-	const b = readFileSync(join(ROOT, path));
-	const json = JSON.parse(b.subarray(20, 20 + b.readUInt32LE(12)).toString('utf8'));
+/** The size of a model's position bounds, as the layout has always measured it. */
+function modelBounds(json: GltfJson): [number, number, number] {
 	const min = [Infinity, Infinity, Infinity];
 	const max = [-Infinity, -Infinity, -Infinity];
 	for (const mesh of json.meshes) {
@@ -73,13 +74,67 @@ function modelBounds(path: string): [number, number, number] {
 	return [0, 1, 2].map((i) => ((max[i] as number) - (min[i] as number)) * KIT_SCALE) as [number, number, number];
 }
 
+interface GltfJson {
+	scene?: number;
+	scenes: { nodes: number[] }[];
+	nodes: { mesh?: number; children?: number[]; translation?: number[]; rotation?: number[]; scale?: number[] }[];
+	meshes: { primitives: { attributes: { POSITION: number } }[] }[];
+	accessors: { min: number[]; max: number[] }[];
+}
+
+/**
+ * How far a model's footprint reaches from its origin on the ground, in metres at the kit scale:
+ * the farthest corner of each mesh's bounds, placed by its nodes. The reach holds in every turn
+ * about +Y, so a prop placed at least this far inside a lot's edge stays inside the lot.
+ */
+function modelFootprint(json: GltfJson): number {
+	let reach = 0;
+	const visit = (index: number, place: (p: number[]) => number[]) => {
+		const node = json.nodes[index];
+		if (!node) return;
+		const [tx, ty, tz] = node.translation ?? [0, 0, 0];
+		const [qx, qy, qz, qw] = node.rotation ?? [0, 0, 0, 1];
+		const [sx, sy, sz] = node.scale ?? [1, 1, 1];
+		const local = (p: number[]) => {
+			const [x, y, z] = [(p[0] as number) * (sx as number), (p[1] as number) * (sy as number), (p[2] as number) * (sz as number)];
+			// The quaternion's turn: v + 2w(q x v) + 2 q x (q x v).
+			const [x0, y0, z0, w] = [qx as number, qy as number, qz as number, qw as number];
+			const cx = y0 * z - z0 * y;
+			const cy = z0 * x - x0 * z;
+			const cz = x0 * y - y0 * x;
+			return [
+				x + 2 * (w * cx + y0 * cz - z0 * cy) + (tx as number),
+				y + 2 * (w * cy + z0 * cx - x0 * cz) + (ty as number),
+				z + 2 * (w * cz + x0 * cy - y0 * cx) + (tz as number),
+			];
+		};
+		const world = (p: number[]) => place(local(p));
+		if (node.mesh !== undefined) {
+			for (const primitive of json.meshes[node.mesh]?.primitives ?? []) {
+				const { min, max } = json.accessors[primitive.attributes.POSITION] as { min: number[]; max: number[] };
+				for (const x of [min[0], max[0]])
+					for (const z of [min[2], max[2]]) {
+						const p = world([x as number, 0, z as number]);
+						reach = Math.max(reach, Math.hypot(p[0] as number, p[2] as number));
+					}
+			}
+		}
+		for (const child of node.children ?? []) visit(child, world);
+	};
+	for (const root of json.scenes[json.scene ?? 0]?.nodes ?? []) visit(root, (p) => p);
+	return reach * KIT_SCALE;
+}
+
 function model(kit: Kit, name: string): number {
 	const path = `sources/city/kenney-${kit}/glb/${name}.glb`;
 	let index = modelIndex.get(path);
 	if (index === undefined) {
 		index = models.length;
 		models.push(path);
-		modelSize.push(modelBounds(path));
+		const b = readFileSync(join(ROOT, path));
+		const json = JSON.parse(b.subarray(20, 20 + b.readUInt32LE(12)).toString('utf8')) as GltfJson;
+		modelSize.push(modelBounds(json));
+		modelReach.push(modelFootprint(json));
 		modelIndex.set(path, index);
 	}
 	return index;
@@ -205,28 +260,50 @@ const industrialProps = ['shipping-container-a', 'shipping-container-b', 'shippi
 
 function lot(district: string, cx: number, cz: number, facing: number) {
 	const half = (LOT * TILE) / 2;
-	const near = (spread: number) => [cx + between(-spread, spread) * half, cz + between(-spread, spread) * half] as const;
+	// A place for model m at up to `spread` of the way from the lot's centre to its edge, moved in
+	// as far as its footprint needs so that no part reaches past the lot into the street.
+	const near = (m: number, spread: number) => {
+		const room = Math.max(0, half - (modelReach[m] ?? 0));
+		const inLot = (c: number, offset: number) => c + Math.max(-room, Math.min(room, offset));
+		const dx = between(-spread, spread) * half;
+		const dz = between(-spread, spread) * half;
+		return [inLot(cx, dx), inLot(cz, dz)] as const;
+	};
+	const prop = (m: number, spread: number, rotationY: number, y = 0, building = -1) =>
+		place(m, ...near(m, spread), rotationY, KIT_SCALE, y, building);
 	if (district === 'downtown') {
 		tower(cx, cz, LOT * TILE * 0.85, between(45, 130));
-		for (let i = 0; i < 4; i++) place(model('commercial', pick(commercialDetails)), ...near(0.9), facing, KIT_SCALE);
+		for (let i = 0; i < 4; i++) prop(model('commercial', pick(commercialDetails)), 0.9, facing);
 	} else if (district === 'midtown') {
 		if (chance(0.5)) tower(cx, cz, LOT * TILE * 0.8, between(15, 40));
 		else kitBuilding('commercial', chance(0.2) ? 'building-skyscraper' : 'building-', cx, cz, facing);
-		for (let i = 0; i < 4; i++) place(model('commercial', pick(commercialDetails)), ...near(0.9), facing, KIT_SCALE);
-		place(model('roads', 'dumpster'), ...near(0.9), facing, KIT_SCALE);
+		for (let i = 0; i < 4; i++) prop(model('commercial', pick(commercialDetails)), 0.9, facing);
+		prop(model('roads', 'dumpster'), 0.9, facing);
 	} else if (district === 'industrial') {
 		const { id, height } = kitBuilding('industrial', 'building-', cx, cz, facing);
 		for (let i = Math.floor(between(1, 4)); i > 0; i--) {
-			place(model('industrial', pick(['solar-panel-flat', 'chimney-small', 'chimney-medium'])), ...near(0.3), facing, KIT_SCALE, height, id);
+			prop(model('industrial', pick(['solar-panel-flat', 'chimney-small', 'chimney-medium'])), 0.3, facing, height, id);
 		}
-		for (let i = 0; i < 6; i++) place(model('industrial', pick(industrialProps)), ...near(0.95), facing + pick([0, Math.PI / 2]), KIT_SCALE);
-		if (chance(0.1)) place(model('industrial', 'water-tower'), ...near(0.8), 0, KIT_SCALE);
+		for (let i = 0; i < 6; i++) {
+			const m = model('industrial', pick(industrialProps));
+			const [x, z] = near(m, 0.95);
+			place(m, x, z, facing + pick([0, Math.PI / 2]), KIT_SCALE);
+		}
+		if (chance(0.1)) prop(model('industrial', 'water-tower'), 0.8, 0);
 	} else {
 		kitBuilding('suburban', 'building-type-', cx, cz, facing);
-		for (let i = 0; i < 6; i++) place(model('suburban', pick(['fence-1x2', 'fence-1x3', 'fence-2x2', 'fence-low'])), ...near(0.95), facing + pick([0, Math.PI / 2]), KIT_SCALE);
-		place(model('suburban', pick(['driveway-long', 'driveway-short'])), ...near(0.6), facing, KIT_SCALE);
-		place(model('suburban', pick(['path-long', 'path-stones-long', 'path-stones-short'])), ...near(0.6), facing, KIT_SCALE);
-		for (let i = 0; i < 3; i++) place(model('suburban', pick(['tree-large', 'tree-small', 'planter'])), ...near(0.9), between(0, Math.PI * 2), KIT_SCALE);
+		for (let i = 0; i < 6; i++) {
+			const m = model('suburban', pick(['fence-1x2', 'fence-1x3', 'fence-2x2', 'fence-low']));
+			const [x, z] = near(m, 0.95);
+			place(m, x, z, facing + pick([0, Math.PI / 2]), KIT_SCALE);
+		}
+		prop(model('suburban', pick(['driveway-long', 'driveway-short'])), 0.6, facing);
+		prop(model('suburban', pick(['path-long', 'path-stones-long', 'path-stones-short'])), 0.6, facing);
+		for (let i = 0; i < 3; i++) {
+			const m = model('suburban', pick(['tree-large', 'tree-small', 'planter']));
+			const [x, z] = near(m, 0.9);
+			place(m, x, z, between(0, Math.PI * 2), KIT_SCALE);
+		}
 	}
 }
 
