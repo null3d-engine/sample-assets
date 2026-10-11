@@ -11,8 +11,9 @@
 //   that follows its joint, in both engines;
 // - the four clips that the battle plays, renamed idle, run, shoot and die.
 // The other weapons, the texture coordinates (the source has no textures) and the other clips go.
-// The body's node transform is baked into its vertices, so its node stands at the origin, and the
-// node takes the name Soldier.
+// The body's node transform is baked into its vertices and into the inverse bind matrices, so the
+// mesh's points are at the soldier's true size and its node stands at the origin. The node takes the
+// name Soldier.
 // The output is the same bytes on every run.
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -249,9 +250,12 @@ function addMesh(into: Built, mesh: Json, place: Mat4, joint: number | null): vo
 	}
 }
 
-// The body: the skinned mesh in its node's frame, then the parts that hang on joints.
+// The body: the skinned mesh in its node's frame, then the parts that hang on joints. The skin's
+// bind space moves into the same frame, so skinning the baked points gives the source's pose.
+const bake = worldOf(bodyNode);
+const unbake = invert(bake);
 const body = built();
-addMesh(body, gltf.meshes[nodes[bodyNode].mesh], worldOf(bodyNode), null);
+addMesh(body, gltf.meshes[nodes[bodyNode].mesh], bake, null);
 for (const name of FOLDED) {
 	const part = nodeNamed(name, true);
 	const bone = parentOf[part] as number;
@@ -259,8 +263,11 @@ for (const name of FOLDED) {
 	if (joint < 0) throw new Error(`${name} hangs on a node that is not a joint`);
 	// The part's points in the skin's bind space: its joint's bind matrix times its place on the joint.
 	const bind = invert(new Float64Array(inverseBinds.slice(joint * 16, joint * 16 + 16)));
-	addMesh(body, gltf.meshes[nodes[part].mesh], multiply(bind, compose(nodes[part])), joint);
+	addMesh(body, gltf.meshes[nodes[part].mesh], multiply(bake, multiply(bind, compose(nodes[part]))), joint);
 }
+const bakedInverseBinds = skin.joints.flatMap((_: number, j: number) =>
+	Array.from(multiply(new Float64Array(inverseBinds.slice(j * 16, j * 16 + 16)), unbake)),
+);
 // Each vertex's weights add up to one, as glTF asks.
 for (let v = 0; v < body.weights.length / 4; v++) {
 	let sum = 0;
@@ -374,7 +381,7 @@ const outNodes = kept.map((old) => {
 	return copy;
 });
 
-const inverseBindAccessor = addAccessor(inverseBinds, 'MAT4', 5126);
+const inverseBindAccessor = addAccessor(bakedInverseBinds, 'MAT4', 5126);
 const skins = [
 	{
 		name: skin.name,
