@@ -11,7 +11,8 @@
 //   that follows its joint, in both engines;
 // - the four clips that the battle plays, renamed idle, run, shoot and die.
 // The other weapons, the texture coordinates (the source has no textures) and the other clips go.
-// The body's node transform is baked into its vertices, so its node stands at the origin.
+// The body's node transform is baked into its vertices, so its node stands at the origin, and the
+// node takes the name Soldier.
 // The output is the same bytes on every run.
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -358,7 +359,8 @@ const materials = [BODY_MATERIAL, WEAPON_MATERIAL].map(({ name, metallicFactor, 
 
 const outNodes = kept.map((old) => {
 	const node = nodes[old];
-	const copy: Json = { name: node.name };
+	// The body's node takes the mesh's name, since a joint of the source is also named Body.
+	const copy: Json = { name: old === bodyNode ? 'Soldier' : node.name };
 	if (old !== bodyNode) {
 		for (const key of ['translation', 'rotation', 'scale', 'matrix']) if (node[key]) copy[key] = node[key];
 	}
