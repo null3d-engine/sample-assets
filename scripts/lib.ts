@@ -31,6 +31,7 @@ export type Origin =
 	| { kind: 'khronos'; commit: string; model: string; variants: string[] }
 	| { kind: 'github'; repo: string; commit: string; files: Record<string, string> }
 	| { kind: 'zip'; url: string; files: Record<string, string> }
+	| { kind: 'files'; files: Record<string, string> }
 	| { kind: 'ambientcg'; id: string; resolution: string; maps: string[] }
 	| { kind: 'polyhaven'; id: string; files: { resolution: string; format: string }[] }
 	| { kind: 'generated'; script: string };
