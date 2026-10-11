@@ -10,13 +10,17 @@
 // - the rifle (AK) as a mesh of its own on the right hand, with its colors as vertex colors: a weapon
 //   that follows its joint, in both engines;
 // - the four clips that the battle plays, renamed idle, run, shoot and die.
-// The other weapons, the texture coordinates (the source has no textures) and the other clips go.
+// Each vertex color's alpha holds its part's surface class (PART in lib.ts): cloth, skin, leather,
+// metal or painted steel, which the engine's shaders read. New texture coordinates, projected along
+// each vertex's main axis in the model's units, let a weave texture cover the model. The source's
+// texture coordinates (it has no textures), the other weapons and the other clips go.
 // The body's node transform is baked into its vertices and into the inverse bind matrices, so the
 // mesh's points are at the soldier's true size and its node stands at the origin. The node takes the
 // name Soldier.
 // The output is the same bytes on every run.
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { accessorValues, boxUvs, COMPONENT_BYTES as BYTES, COMPONENTS, PART, readGlb, writeGlb } from './lib.ts';
 
 const SOURCE = 'sources/characters/quaternius-soldier/Character_Soldier.glb';
 const OUTPUT = 'soldier.glb';
@@ -30,6 +34,19 @@ const CLIPS: Record<string, string> = {
 	die: 'CharacterArmature|Death',
 };
 const BODY_MATERIAL = { name: 'Soldier', metallicFactor: 0, roughnessFactor: 0.8 };
+/** Each source material's surface class; the uniform's green is painted steel on the helmet. */
+const CLASSES: Record<string, number> = {
+	Skin: PART.skin,
+	Black: PART.rubber,
+	DarkGrey: PART.rubber,
+	Wood: PART.rubber,
+	Grey: PART.metal,
+	Grey2: PART.metal,
+	Character_Main: PART.cloth,
+	Pants: PART.cloth,
+};
+/** Folded parts that are painted steel whatever their material: the helmet's head and the pads. */
+const STEEL: Record<string, string[]> = { Head: ['Character_Main'], 'ShoulderPad.L': ['Grey'], 'ShoulderPad.R': ['Grey'] };
 const WEAPON_MATERIAL = { name: 'Rifle', metallicFactor: 0.6, roughnessFactor: 0.45 };
 
 // biome-ignore lint/suspicious/noExplicitAny: glTF JSON
@@ -42,51 +59,8 @@ if (!out) throw new Error('Usage: bun scripts/battle-soldier.ts <output folder>'
 
 // Reading the source.
 
-const glb = readFileSync(join(root, SOURCE));
-const jsonLength = glb.readUInt32LE(12);
-const gltf: Json = JSON.parse(glb.subarray(20, 20 + jsonLength).toString('utf8'));
-const binStart = 20 + jsonLength + 8;
-const bin = glb.subarray(binStart, binStart + glb.readUInt32LE(20 + jsonLength));
-
-const COMPONENTS: Record<string, number> = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT4: 16 };
-const BYTES: Record<number, number> = { 5120: 1, 5121: 1, 5122: 2, 5123: 2, 5125: 4, 5126: 4 };
-
-/** An accessor's values as numbers, element by element. */
-function read(index: number): number[] {
-	const accessor = gltf.accessors[index];
-	const view = gltf.bufferViews[accessor.bufferView];
-	const size = COMPONENTS[accessor.type] as number;
-	const bytes = BYTES[accessor.componentType] as number;
-	const stride = view.byteStride ?? size * bytes;
-	const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
-	const values: number[] = [];
-	for (let i = 0; i < accessor.count; i++) {
-		for (let c = 0; c < size; c++) {
-			const at = start + i * stride + c * bytes;
-			let value: number;
-			switch (accessor.componentType) {
-				case 5126:
-					value = bin.readFloatLE(at);
-					break;
-				case 5125:
-					value = bin.readUInt32LE(at);
-					break;
-				case 5123:
-					value = bin.readUInt16LE(at);
-					if (accessor.normalized) value /= 65535;
-					break;
-				case 5121:
-					value = bin.readUInt8(at);
-					if (accessor.normalized) value /= 255;
-					break;
-				default:
-					throw new Error(`Accessor ${index} has component type ${accessor.componentType}`);
-			}
-			values.push(value);
-		}
-	}
-	return values;
-}
+const { json: gltf, bin } = readGlb(readFileSync(join(root, SOURCE)));
+const read = (index: number) => accessorValues(gltf, bin, index);
 
 // Matrices, column-major as glTF keeps them.
 
@@ -197,6 +171,7 @@ const weaponNode = nodeNamed(WEAPON, true);
 interface Built {
 	position: number[];
 	normal: number[];
+	/** Four floats per vertex: the part's color, and its surface class in alpha. */
 	color: number[];
 	joints: number[];
 	weights: number[];
@@ -211,6 +186,9 @@ const built = (): Built => ({ position: [], normal: [], color: [], joints: [], w
  */
 function addMesh(into: Built, mesh: Json, place: Mat4, joint: number | null): void {
 	for (const primitive of mesh.primitives) {
+		const name = gltf.materials[primitive.material]?.name as string;
+		const part = STEEL[mesh.name]?.includes(name) ? PART.paint : CLASSES[name];
+		if (part === undefined) throw new Error(`No surface class for material ${name}`);
 		const base = into.position.length / 3;
 		const position = read(primitive.attributes.POSITION);
 		const normal = read(primitive.attributes.NORMAL);
@@ -237,7 +215,7 @@ function addMesh(into: Built, mesh: Json, place: Mat4, joint: number | null): vo
 					normal[v * 3 + 2] as number,
 				),
 			);
-			into.color.push(factor[0], factor[1], factor[2]);
+			into.color.push(factor[0], factor[1], factor[2], part);
 			if (skinned) {
 				into.joints.push(...joints.slice(v * 4, v * 4 + 4));
 				into.weights.push(...weights.slice(v * 4, v * 4 + 4));
@@ -346,7 +324,8 @@ function primitiveOf(mesh: Built, material: number, skinned: boolean): Json {
 	const attributes: Json = {
 		POSITION: addAccessor(mesh.position, 'VEC3', 5126, ARRAY, true),
 		NORMAL: addAccessor(mesh.normal, 'VEC3', 5126, ARRAY),
-		COLOR_0: addAccessor(mesh.color, 'VEC3', 5126, ARRAY),
+		COLOR_0: addAccessor(mesh.color, 'VEC4', 5126, ARRAY),
+		TEXCOORD_0: addAccessor(boxUvs(mesh.position, mesh.normal), 'VEC2', 5126, ARRAY),
 	};
 	if (skinned) {
 		attributes.JOINTS_0 = addAccessor(mesh.joints, 'VEC4', 5123, ARRAY);
@@ -430,28 +409,8 @@ const output: Json = {
 	buffers: [{ byteLength: binLength }],
 };
 
-let json = Buffer.from(JSON.stringify(output), 'utf8');
-json = Buffer.concat([json, Buffer.alloc((4 - (json.length % 4)) % 4, 0x20)]);
-let data = Buffer.concat(chunks);
-data = Buffer.concat([data, Buffer.alloc((4 - (data.length % 4)) % 4)]);
-output.buffers[0].byteLength = data.length;
-json = Buffer.from(JSON.stringify(output), 'utf8');
-json = Buffer.concat([json, Buffer.alloc((4 - (json.length % 4)) % 4, 0x20)]);
-const header = Buffer.alloc(12);
-header.writeUInt32LE(0x46546c67, 0);
-header.writeUInt32LE(2, 4);
-header.writeUInt32LE(12 + 8 + json.length + 8 + data.length, 8);
-const chunk = (length: number, type: number) => {
-	const b = Buffer.alloc(8);
-	b.writeUInt32LE(length, 0);
-	b.writeUInt32LE(type, 4);
-	return b;
-};
 mkdirSync(out, { recursive: true });
-writeFileSync(
-	join(out, OUTPUT),
-	Buffer.concat([header, chunk(json.length, 0x4e4f534a), json, chunk(data.length, 0x004e4942), data]),
-);
+writeFileSync(join(out, OUTPUT), writeGlb(output, Buffer.concat(chunks)));
 console.log(
 	`${OUTPUT}: ${body.index.length / 3} body triangles, ${weapon.index.length / 3} rifle triangles, ${kept.length} nodes, ${animations.length} clips`,
 );
