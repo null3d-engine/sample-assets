@@ -39,7 +39,7 @@ If you copy an asset from this repository, keep its row: the title, the authors,
 
 ## Add an asset
 
-1. Add an entry to `manifest.json`, with an `origin` that says where the files come from (`khronos`, `github`, `zip`, `files`, `ambientcg`, `polyhaven` or `generated`). `files` downloads single files by their addresses. Copy a similar entry. Fill in the title, the purpose, the authors, the source link, the licence and the changes. The import fills the title and the authors from Poly Haven's and ambientCG's catalogues when you leave them empty.
+1. Add an entry to `manifest.json`, with an `origin` that says where the files come from (`khronos`, `github`, `zip`, `ambientcg`, `polyhaven` or `generated`). Copy a similar entry. Fill in the title, the purpose, the authors, the source link, the licence and the changes. The import fills the title and the authors from Poly Haven's and ambientCG's catalogues when you leave them empty.
 2. Run `bun scripts/import.ts <asset id>`. It downloads the files into the asset's folder and sets the fetch date.
 3. Run `bun scripts/manifest.ts --write`. It records each file's size and SHA-256 and rewrites the tables below.
 4. Run `bun scripts/manifest.ts` and fix every problem it lists.
@@ -55,7 +55,7 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 
 <!-- manifest:start -->
 
-83 assets, 544 files, 186.54 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
+90 assets, 571 files, 203.79 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
 
 ### Khronos glTF sample models
 
@@ -89,6 +89,13 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 | `khronos/NegativeScaleTest` | [Negative Scale Test](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/NegativeScaleTest) | Nodes with negative scale | Ed Mackey | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | 2026-10-03 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 0.06 MB |
 | `khronos/VertexColorTest` | [Vertex Color Test](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/VertexColorTest) | Vertex colours | Ed Mackey | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | 2026-10-03 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 0.03 MB |
 | `khronos/BoomBox` | [Boom Box](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/BoomBox) | Textured reference object with an emissive map | Microsoft | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-03 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 10.62 MB |
+| `khronos/ClearCoatTest` | [Clear Coat Test](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ClearCoatTest) | KHR_materials_clearcoat: coat factor, roughness, coat and base normal maps, beside uncoated twins | Ed Mackey | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | 2026-10-11 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 0.26 MB |
+| `khronos/ClearCoatCarPaint` | [Clear Coat Car Paint](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ClearCoatCarPaint) | KHR_materials_clearcoat over a flake normal map, as car paint | Eric Chadwick | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 0.12 MB |
+| `khronos/ClearcoatWicker` | [Clearcoat Wicker](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ClearcoatWicker) | KHR_materials_clearcoat with a coat normal map over textured wicker | Eric Chadwick | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 1.30 MB |
+| `khronos/SheenChair` | [Sheen Chair](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenChair) | KHR_materials_sheen on velvet, with textured wood and fabric | Eric Chadwick | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 4.13 MB |
+| `khronos/SheenCloth` | [Sheen Cloth](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenCloth) | KHR_materials_sheen with a sheen texture whose alpha holds the roughness, as a .gltf file with separate images | Microsoft | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | None. Kept the glTF variant, the licence file and the metadata file. | 9, 4.18 MB |
+| `khronos/SheenTestGrid` | [Sheen Test Grid](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenTestGrid) | KHR_materials_sheen: a grid of sheen colors and roughnesses | Eric Chadwick | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 1.84 MB |
+| `khronos/ToyCar` | [Toy Car](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ToyCar) | KHR_materials_clearcoat, KHR_materials_sheen and KHR_materials_transmission in one product scene | Guido Odendahl (initial car model, CC0-1.0); Eric Chadwick (extensions and scene composition, CC0-1.0) | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 5.42 MB |
 
 ### Characters
 
