@@ -40,6 +40,7 @@ const GROUPS: [string, string][] = [
 	['materials/', 'Materials'],
 	['hdri/', 'Environments'],
 	['luts', 'Colour grading tables'],
+	['showcase/', 'Showcase scenes'],
 ];
 
 const cell = (text: string) => text.replaceAll('|', '\\|').replaceAll('\n', ' ');

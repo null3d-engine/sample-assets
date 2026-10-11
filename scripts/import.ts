@@ -145,6 +145,10 @@ async function fromPolyHaven(asset: Asset, origin: Extract<Origin, { kind: 'poly
 
 async function importAsset(asset: Asset) {
 	const origin = asset.origin;
+	// Blender builds these, so there is nothing to download. Keep the committed files.
+	if (origin.kind === 'blender') {
+		throw new Error(`${asset.id} is built in Blender: run ${origin.script} and copy its files into ${asset.dir}`);
+	}
 	rmSync(join(ROOT, asset.dir), { recursive: true, force: true });
 	mkdirSync(join(ROOT, asset.dir), { recursive: true });
 	switch (origin.kind) {

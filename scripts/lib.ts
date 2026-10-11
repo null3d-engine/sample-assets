@@ -34,7 +34,9 @@ export type Origin =
 	| { kind: 'files'; files: Record<string, string> }
 	| { kind: 'ambientcg'; id: string; resolution: string; maps: string[] }
 	| { kind: 'polyhaven'; id: string; files: { resolution: string; format: string }[] }
-	| { kind: 'generated'; script: string };
+	| { kind: 'generated'; script: string }
+	/** A model that a Blender script in another repository builds: `script` links to it. */
+	| { kind: 'blender'; script: string };
 
 export interface FileEntry {
 	path: string;
