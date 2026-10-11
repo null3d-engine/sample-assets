@@ -31,6 +31,7 @@ export type Origin =
 	| { kind: 'khronos'; commit: string; model: string; variants: string[] }
 	| { kind: 'github'; repo: string; commit: string; files: Record<string, string> }
 	| { kind: 'zip'; url: string; files: Record<string, string> }
+	| { kind: 'files'; files: Record<string, string> }
 	| { kind: 'ambientcg'; id: string; resolution: string; maps: string[] }
 	| { kind: 'polyhaven'; id: string; files: { resolution: string; format: string }[] }
 	| { kind: 'generated'; script: string };
@@ -202,4 +203,101 @@ function gltfImages(path: string, b: Uint8Array): ImageSize[] {
 /** The repository's file size in megabytes, as the README prints it. */
 export function megabytes(bytes: number): string {
 	return (bytes / 1e6).toFixed(2);
+}
+
+// Binary glTF files, for the scripts that generate models.
+
+// biome-ignore lint/suspicious/noExplicitAny: glTF JSON
+type GltfJson = any;
+
+export const COMPONENTS: Record<string, number> = { SCALAR: 1, VEC2: 2, VEC3: 3, VEC4: 4, MAT4: 16 };
+export const COMPONENT_BYTES: Record<number, number> = { 5120: 1, 5121: 1, 5122: 2, 5123: 2, 5125: 4, 5126: 4 };
+
+/** A binary glTF file's JSON and its binary chunk. */
+export function readGlb(glb: Buffer): { json: GltfJson; bin: Buffer } {
+	const jsonLength = glb.readUInt32LE(12);
+	const json = JSON.parse(glb.subarray(20, 20 + jsonLength).toString('utf8'));
+	const binStart = 20 + jsonLength + 8;
+	return { json, bin: glb.subarray(binStart, binStart + glb.readUInt32LE(20 + jsonLength)) };
+}
+
+/** An accessor's values as numbers, element by element, with normalized integers as fractions. */
+export function accessorValues(json: GltfJson, bin: Buffer, index: number): number[] {
+	const accessor = json.accessors[index];
+	const view = json.bufferViews[accessor.bufferView];
+	const size = COMPONENTS[accessor.type] as number;
+	const bytes = COMPONENT_BYTES[accessor.componentType] as number;
+	const stride = view.byteStride ?? size * bytes;
+	const start = (view.byteOffset ?? 0) + (accessor.byteOffset ?? 0);
+	const values: number[] = [];
+	for (let i = 0; i < accessor.count; i++) {
+		for (let c = 0; c < size; c++) {
+			const at = start + i * stride + c * bytes;
+			let value: number;
+			switch (accessor.componentType) {
+				case 5126:
+					value = bin.readFloatLE(at);
+					break;
+				case 5125:
+					value = bin.readUInt32LE(at);
+					break;
+				case 5123:
+					value = bin.readUInt16LE(at);
+					if (accessor.normalized) value /= 65535;
+					break;
+				case 5121:
+					value = bin.readUInt8(at);
+					if (accessor.normalized) value /= 255;
+					break;
+				default:
+					throw new Error(`Accessor ${index} has component type ${accessor.componentType}`);
+			}
+			values.push(value);
+		}
+	}
+	return values;
+}
+
+/** A binary glTF file of the JSON and the binary chunk, each padded to four bytes. */
+export function writeGlb(json: GltfJson, bin: Buffer): Buffer {
+	const data = Buffer.concat([bin, Buffer.alloc((4 - (bin.length % 4)) % 4)]);
+	json.buffers = [{ byteLength: data.length }];
+	let text = Buffer.from(JSON.stringify(json), 'utf8');
+	text = Buffer.concat([text, Buffer.alloc((4 - (text.length % 4)) % 4, 0x20)]);
+	const header = Buffer.alloc(12);
+	header.writeUInt32LE(0x46546c67, 0);
+	header.writeUInt32LE(2, 4);
+	header.writeUInt32LE(12 + 8 + text.length + 8 + data.length, 8);
+	const chunk = (length: number, type: number) => {
+		const b = Buffer.alloc(8);
+		b.writeUInt32LE(length, 0);
+		b.writeUInt32LE(type, 4);
+		return b;
+	};
+	return Buffer.concat([header, chunk(text.length, 0x4e4f534a), text, chunk(data.length, 0x004e4942), data]);
+}
+
+/**
+ * The surface class of each part of a battle unit, which the engine's Battle shaders read from the
+ * alpha of each vertex color: skin, glowing vents, rubber and leather and wood, bare metal, painted
+ * steel, and cloth.
+ */
+export const PART = { skin: 0, glow: 0.2, rubber: 0.4, metal: 0.6, paint: 0.8, cloth: 1 } as const;
+
+/**
+ * Texture coordinates in the model's units, projected along each vertex's main axis as a box
+ * projects them: across x and up y on the faces toward z, across z and up y on the faces toward x,
+ * and across x and z on the faces toward y. A texture of a weave or of panels then keeps one size
+ * over the whole model, with no texture of its own.
+ */
+export function boxUvs(position: readonly number[], normal: readonly number[]): number[] {
+	const uv: number[] = [];
+	for (let v = 0; v < position.length / 3; v++) {
+		const [x, y, z] = position.slice(v * 3, v * 3 + 3) as [number, number, number];
+		const [ax, ay, az] = normal.slice(v * 3, v * 3 + 3).map(Math.abs) as [number, number, number];
+		if (ax >= ay && ax >= az) uv.push(z, y);
+		else if (ay >= az) uv.push(x, z);
+		else uv.push(x, y);
+	}
+	return uv;
 }
