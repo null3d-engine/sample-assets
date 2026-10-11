@@ -92,6 +92,15 @@ async function fromZip(url: string, files: Record<string, string>, dir: string) 
 	});
 }
 
+/** Downloads single files: each key is a file's address, and its value the name to keep. */
+async function fromFiles(files: Record<string, string>, dir: string) {
+	await Promise.all(
+		Object.entries(files).map(async ([url, to]) => {
+			await Bun.write(join(ROOT, dir, to), await download(url));
+		}),
+	);
+}
+
 /** Copies the maps that the set has, out of the ones the origin names. */
 async function fromAmbientCg(asset: Asset, origin: Extract<Origin, { kind: 'ambientcg' }>) {
 	const name = `${origin.id}_${origin.resolution}`;
@@ -156,6 +165,9 @@ async function importAsset(asset: Asset) {
 			break;
 		case 'zip':
 			await fromZip(origin.url, origin.files, asset.dir);
+			break;
+		case 'files':
+			await fromFiles(origin.files, asset.dir);
 			break;
 		case 'ambientcg':
 			await fromAmbientCg(asset, origin);
