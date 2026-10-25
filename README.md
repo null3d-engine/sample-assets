@@ -55,7 +55,7 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 
 <!-- manifest:start -->
 
-92 assets, 591 files, 215.04 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
+94 assets, 601 files, 215.76 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
 
 ### Khronos glTF sample models
 
@@ -97,6 +97,8 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 | `khronos/SheenTestGrid` | [Sheen Test Grid](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/SheenTestGrid) | KHR_materials_sheen: a grid of sheen colors and roughnesses | Eric Chadwick | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 1.84 MB |
 | `khronos/ToyCar` | [Toy Car](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/ToyCar) | KHR_materials_clearcoat, KHR_materials_sheen and KHR_materials_transmission in one product scene | Guido Odendahl (initial car model, CC0-1.0); Eric Chadwick (extensions and scene composition, CC0-1.0) | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | None. Kept the glTF-Binary variant, the licence file and the metadata file. | 3, 5.42 MB |
 | `khronos/AnimationPointerUVs` | [Animation Pointer UVs](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/AnimationPointerUVs) | KHR_animation_pointer on texture transforms: the offset, scale and rotation of each texture slot | Eric Chadwick (3D asset and textures, CC-BY-4.0); Darmstadt Graphics Group GmbH (owner, CC-BY-4.0) | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | 2026-10-24 | None. Kept the glTF variant, the licence file and the metadata file. | 17, 8.17 MB |
+| `khronos/IridescenceDielectricSpheres` | [Iridescence Dielectric Spheres](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/IridescenceDielectricSpheres) | KHR_materials_iridescence over a dielectric base: the base index of refraction, the film's thickness and the film's index | Khronos | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-25 | None. Kept the glTF variant, the licence file and the metadata file. | 5, 0.37 MB |
+| `khronos/IridescenceMetallicSpheres` | [Iridescence Metallic Spheres](https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/IridescenceMetallicSpheres) | KHR_materials_iridescence over a metal base: the base color, the film's thickness and the film's index | UX3D | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-25 | None. Kept the glTF variant, the licence file and the metadata file. | 5, 0.35 MB |
 
 ### Characters
 
