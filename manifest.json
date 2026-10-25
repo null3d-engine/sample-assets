@@ -5808,6 +5808,51 @@
 					"sha256": "d87fd62f51abdb797284f1d731141f41137f20ec03a26077cf8b3a0ff0d3f674"
 				}
 			]
+		},
+		{
+			"id": "khronos/IridescenceSuzanne",
+			"title": "Iridescence Suzanne",
+			"purpose": "KHR_materials_iridescence with a thickness texture, transmission and volume: three heads, one for each material",
+			"authors": [
+				{
+					"name": "Mathias Kanzler"
+				},
+				{
+					"name": "Pascal Schoen"
+				}
+			],
+			"license": [
+				"CC0-1.0"
+			],
+			"source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/IridescenceSuzanne",
+			"fetched": "2026-10-25",
+			"changes": "None. Kept the glTF-Binary variant, the licence file and the metadata file.",
+			"dir": "sources/khronos/IridescenceSuzanne",
+			"origin": {
+				"kind": "khronos",
+				"commit": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+				"model": "IridescenceSuzanne",
+				"variants": [
+					"glTF-Binary"
+				]
+			},
+			"files": [
+				{
+					"path": "sources/khronos/IridescenceSuzanne/LICENSE.md",
+					"bytes": 923,
+					"sha256": "204da4d7d1b7b88273f03dfdfbc39fef1200d2e7f3833afeca440a3e5b47aaa7"
+				},
+				{
+					"path": "sources/khronos/IridescenceSuzanne/glTF-Binary/IridescenceSuzanne.glb",
+					"bytes": 507608,
+					"sha256": "866762602d60a0942b7608bfabf4e8686a29033636224f4b55c5e56abe8abf8f"
+				},
+				{
+					"path": "sources/khronos/IridescenceSuzanne/metadata.json",
+					"bytes": 1052,
+					"sha256": "72228ea5a9e2f3d148ac2a185f5dfb49ed8d94741f5b5c8c983a05d2eb043ee2"
+				}
+			]
 		}
 	]
 }
