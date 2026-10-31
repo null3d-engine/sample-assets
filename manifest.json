@@ -5704,6 +5704,155 @@
 					"sha256": "c6f7d6389c46d70f4001447daf3a97143e760c59b8e392f7f291dcf7bd765808"
 				}
 			]
+		},
+		{
+			"id": "khronos/IridescenceDielectricSpheres",
+			"title": "Iridescence Dielectric Spheres",
+			"purpose": "KHR_materials_iridescence over a dielectric base: the base index of refraction, the film's thickness and the film's index",
+			"authors": [
+				{
+					"name": "Khronos"
+				}
+			],
+			"license": [
+				"CC0-1.0"
+			],
+			"source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/IridescenceDielectricSpheres",
+			"fetched": "2026-10-25",
+			"changes": "None. Kept the glTF variant, the licence file and the metadata file.",
+			"dir": "sources/khronos/IridescenceDielectricSpheres",
+			"origin": {
+				"kind": "khronos",
+				"commit": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+				"model": "IridescenceDielectricSpheres",
+				"variants": [
+					"glTF"
+				]
+			},
+			"files": [
+				{
+					"path": "sources/khronos/IridescenceDielectricSpheres/LICENSE.md",
+					"bytes": 792,
+					"sha256": "e494d2a8847df3a8831f5ff4309c880c65d72a4edd468c674399d5a76ac9e4de"
+				},
+				{
+					"path": "sources/khronos/IridescenceDielectricSpheres/glTF/IridescenceDielectricSpheres.bin",
+					"bytes": 34068,
+					"sha256": "eeacab254dfd44b8e026a8ad9e865aa1b63711eb86fa7c36180a437845e97253"
+				},
+				{
+					"path": "sources/khronos/IridescenceDielectricSpheres/glTF/IridescenceDielectricSpheres.gltf",
+					"bytes": 295192,
+					"sha256": "fe156ca114515aa2606d35e3eea4940fcf9895559d474e14ec48dedf4e5a8575"
+				},
+				{
+					"path": "sources/khronos/IridescenceDielectricSpheres/glTF/textures/guides.png",
+					"bytes": 42439,
+					"sha256": "01cef8cce29485f2e12c422aca6330b2ec869068f8035c3f006210678afc3573"
+				},
+				{
+					"path": "sources/khronos/IridescenceDielectricSpheres/metadata.json",
+					"bytes": 692,
+					"sha256": "626cd43494f61ad40d905a64d9be985f7be15ffc1570d066f122445c188eda15"
+				}
+			]
+		},
+		{
+			"id": "khronos/IridescenceMetallicSpheres",
+			"title": "Iridescence Metallic Spheres",
+			"purpose": "KHR_materials_iridescence over a metal base: the base color, the film's thickness and the film's index",
+			"authors": [
+				{
+					"name": "UX3D"
+				}
+			],
+			"license": [
+				"CC0-1.0"
+			],
+			"source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/IridescenceMetallicSpheres",
+			"fetched": "2026-10-25",
+			"changes": "None. Kept the glTF variant, the licence file and the metadata file.",
+			"dir": "sources/khronos/IridescenceMetallicSpheres",
+			"origin": {
+				"kind": "khronos",
+				"commit": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+				"model": "IridescenceMetallicSpheres",
+				"variants": [
+					"glTF"
+				]
+			},
+			"files": [
+				{
+					"path": "sources/khronos/IridescenceMetallicSpheres/LICENSE.md",
+					"bytes": 790,
+					"sha256": "4f0246487b90bf517becb25eb938c3893b36eb12b8ead3b96ba91f769ef42145"
+				},
+				{
+					"path": "sources/khronos/IridescenceMetallicSpheres/glTF/IridescenceMetallicSpheres.bin",
+					"bytes": 34068,
+					"sha256": "eeacab254dfd44b8e026a8ad9e865aa1b63711eb86fa7c36180a437845e97253"
+				},
+				{
+					"path": "sources/khronos/IridescenceMetallicSpheres/glTF/IridescenceMetallicSpheres.gltf",
+					"bytes": 267539,
+					"sha256": "8b43928584db4a27806fb9b806ebd22d5cb106b2262fc4ce3f4421419c0e60fe"
+				},
+				{
+					"path": "sources/khronos/IridescenceMetallicSpheres/glTF/textures/guides.png",
+					"bytes": 43791,
+					"sha256": "04be7e96eacef9981b3cdf67eeef390d080f601af86d86bef51993ee1bf738cc"
+				},
+				{
+					"path": "sources/khronos/IridescenceMetallicSpheres/metadata.json",
+					"bytes": 679,
+					"sha256": "d87fd62f51abdb797284f1d731141f41137f20ec03a26077cf8b3a0ff0d3f674"
+				}
+			]
+		},
+		{
+			"id": "khronos/IridescenceSuzanne",
+			"title": "Iridescence Suzanne",
+			"purpose": "KHR_materials_iridescence with a thickness texture, transmission and volume: three heads, one for each material",
+			"authors": [
+				{
+					"name": "Mathias Kanzler"
+				},
+				{
+					"name": "Pascal Schoen"
+				}
+			],
+			"license": [
+				"CC0-1.0"
+			],
+			"source": "https://github.com/KhronosGroup/glTF-Sample-Assets/tree/edc7c9e67c639d230715049ee31f9a96a6babbbe/Models/IridescenceSuzanne",
+			"fetched": "2026-10-25",
+			"changes": "None. Kept the glTF-Binary variant, the licence file and the metadata file.",
+			"dir": "sources/khronos/IridescenceSuzanne",
+			"origin": {
+				"kind": "khronos",
+				"commit": "edc7c9e67c639d230715049ee31f9a96a6babbbe",
+				"model": "IridescenceSuzanne",
+				"variants": [
+					"glTF-Binary"
+				]
+			},
+			"files": [
+				{
+					"path": "sources/khronos/IridescenceSuzanne/LICENSE.md",
+					"bytes": 923,
+					"sha256": "204da4d7d1b7b88273f03dfdfbc39fef1200d2e7f3833afeca440a3e5b47aaa7"
+				},
+				{
+					"path": "sources/khronos/IridescenceSuzanne/glTF-Binary/IridescenceSuzanne.glb",
+					"bytes": 507608,
+					"sha256": "866762602d60a0942b7608bfabf4e8686a29033636224f4b55c5e56abe8abf8f"
+				},
+				{
+					"path": "sources/khronos/IridescenceSuzanne/metadata.json",
+					"bytes": 1052,
+					"sha256": "72228ea5a9e2f3d148ac2a185f5dfb49ed8d94741f5b5c8c983a05d2eb043ee2"
+				}
+			]
 		}
 	]
 }
