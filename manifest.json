@@ -5853,6 +5853,34 @@
 					"sha256": "72228ea5a9e2f3d148ac2a185f5dfb49ed8d94741f5b5c8c983a05d2eb043ee2"
 				}
 			]
+		},
+		{
+			"id": "splats/bolton-priory",
+			"title": "Bolton Priory",
+			"purpose": "A drone scan of a whole site as Gaussian splats, 1.71 million of them in a SOG file, for the splats add-on's reader, its detail levels and its budget",
+			"authors": [
+				{
+					"name": "Dok11"
+				}
+			],
+			"license": [
+				"CC-BY-4.0"
+			],
+			"source": "https://superspl.at/scene/56496eab",
+			"fetched": "2026-11-02",
+			"changes": "None. Renamed Bolton Priory.sog to bolton-priory.sog.",
+			"dir": "sources/splats/bolton-priory",
+			"origin": {
+				"kind": "manual",
+				"url": "https://superspl.at/scene/56496eab"
+			},
+			"files": [
+				{
+					"path": "sources/splats/bolton-priory/bolton-priory.sog",
+					"bytes": 24426323,
+					"sha256": "19a160074b1f08c05407cefdfa8dc9760fab8209449320c64e6c2af986151fc8"
+				}
+			]
 		}
 	]
 }
