@@ -39,7 +39,7 @@ If you copy an asset from this repository, keep its row: the title, the authors,
 
 ## Add an asset
 
-1. Add an entry to `manifest.json`, with an `origin` that says where the files come from (`khronos`, `github`, `zip`, `ambientcg`, `polyhaven` or `generated`). Copy a similar entry. Fill in the title, the purpose, the authors, the source link, the licence and the changes. The import fills the title and the authors from Poly Haven's and ambientCG's catalogues when you leave them empty.
+1. Add an entry to `manifest.json`, with an `origin` that says where the files come from (`khronos`, `github`, `zip`, `files`, `ambientcg`, `polyhaven`, `generated`, `blender` or `manual`). A `manual` asset comes from a site that serves its files only to a signed-in account: download them by hand from the page that the origin names, and copy them into the asset's folder in place of step 2. Copy a similar entry. Fill in the title, the purpose, the authors, the source link, the licence and the changes. The import fills the title and the authors from Poly Haven's and ambientCG's catalogues when you leave them empty.
 2. Run `bun scripts/import.ts <asset id>`. It downloads the files into the asset's folder and sets the fetch date.
 3. Run `bun scripts/manifest.ts --write`. It records each file's size and SHA-256 and rewrites the tables below.
 4. Run `bun scripts/manifest.ts` and fix every problem it lists.
@@ -55,7 +55,7 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 
 <!-- manifest:start -->
 
-95 assets, 604 files, 216.27 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
+96 assets, 605 files, 240.70 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
 
 ### Khronos glTF sample models
 
@@ -186,5 +186,11 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 | Asset | Title | Purpose | Authors | Licence | Fetched | Changes | Files |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `showcase/creek` | [Creek trees, plants and cave](https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek.py) | The organic models of the engine's Creek showcase scene: oak, beech and birch trees, a fern, a hosta, a shrub, wildflowers and a rocky cave mouth | null3D contributors | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | Built in Blender 5.2 by tools/samples/blender/creek.py in the engine repository, with every texture made by the script. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into each file, by tools/samples/blender/creek.ts. | 3, 3.09 MB |
+
+### Gaussian splats
+
+| Asset | Title | Purpose | Authors | Licence | Fetched | Changes | Files |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `splats/bolton-priory` | [Bolton Priory](https://superspl.at/scene/56496eab) | A drone scan of a whole site as Gaussian splats, 1.71 million of them in a SOG file, for the splats add-on's reader, its detail levels and its budget | Dok11 | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | 2026-11-02 | None. Renamed Bolton Priory.sog to bolton-priory.sog. | 1, 24.43 MB |
 
 <!-- manifest:end -->

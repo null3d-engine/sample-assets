@@ -149,6 +149,10 @@ async function importAsset(asset: Asset) {
 	if (origin.kind === 'blender') {
 		throw new Error(`${asset.id} is built in Blender: run ${origin.script} and copy its files into ${asset.dir}`);
 	}
+	// The site serves these only to a signed-in account, so a script cannot download them.
+	if (origin.kind === 'manual') {
+		throw new Error(`${asset.id} needs a signed-in download: download it from ${origin.url} and copy its files into ${asset.dir}`);
+	}
 	rmSync(join(ROOT, asset.dir), { recursive: true, force: true });
 	mkdirSync(join(ROOT, asset.dir), { recursive: true });
 	switch (origin.kind) {
