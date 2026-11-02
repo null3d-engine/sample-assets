@@ -149,6 +149,10 @@ async function importAsset(asset: Asset) {
 	if (origin.kind === 'blender') {
 		throw new Error(`${asset.id} is built in Blender: run ${origin.script} and copy its files into ${asset.dir}`);
 	}
+	// A script in the engine's repository converts these from another asset, so there is nothing to download.
+	if (origin.kind === 'converted') {
+		throw new Error(`${asset.id} is converted from ${origin.from}: run ${origin.script} and copy its files into ${asset.dir}`);
+	}
 	// The site serves these only to a signed-in account, so a script cannot download them.
 	if (origin.kind === 'manual') {
 		throw new Error(`${asset.id} needs a signed-in download: download it from ${origin.url} and copy its files into ${asset.dir}`);
