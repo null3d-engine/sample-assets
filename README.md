@@ -39,7 +39,7 @@ If you copy an asset from this repository, keep its row: the title, the authors,
 
 ## Add an asset
 
-1. Add an entry to `manifest.json`, with an `origin` that says where the files come from (`khronos`, `github`, `zip`, `files`, `ambientcg`, `polyhaven`, `generated`, `blender` or `manual`). A `manual` asset comes from a site that serves its files only to a signed-in account: download them by hand from the page that the origin names, and copy them into the asset's folder in place of step 2. Copy a similar entry. Fill in the title, the purpose, the authors, the source link, the licence and the changes. The import fills the title and the authors from Poly Haven's and ambientCG's catalogues when you leave them empty.
+1. Add an entry to `manifest.json`, with an `origin` that says where the files come from (`khronos`, `github`, `zip`, `files`, `ambientcg`, `polyhaven`, `generated`, `blender`, `manual` or `converted`). A `manual` asset comes from a site that serves its files only to a signed-in account: download them by hand from the page that the origin names, and copy them into the asset's folder in place of step 2. A `converted` asset is made from another asset here by a script in the engine's repository: run the script that the origin names, and copy its files into the asset's folder in place of step 2. Copy a similar entry. Fill in the title, the purpose, the authors, the source link, the licence and the changes. The import fills the title and the authors from Poly Haven's and ambientCG's catalogues when you leave them empty.
 2. Run `bun scripts/import.ts <asset id>`. It downloads the files into the asset's folder and sets the fetch date.
 3. Run `bun scripts/manifest.ts --write`. It records each file's size and SHA-256 and rewrites the tables below.
 4. Run `bun scripts/manifest.ts` and fix every problem it lists.
@@ -55,7 +55,7 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 
 <!-- manifest:start -->
 
-96 assets, 605 files, 240.70 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
+97 assets, 690 files, 268.27 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
 
 ### Khronos glTF sample models
 
@@ -192,5 +192,6 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 | Asset | Title | Purpose | Authors | Licence | Fetched | Changes | Files |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `splats/bolton-priory` | [Bolton Priory](https://superspl.at/scene/56496eab) | A drone scan of a whole site as Gaussian splats, 1.71 million of them in a SOG file, for the splats add-on's reader, its detail levels and its budget | Dok11 | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | 2026-11-02 | None. Renamed Bolton Priory.sog to bolton-priory.sog. | 1, 24.43 MB |
+| `splats/bolton-priory-stream` | [Bolton Priory (splat stream)](https://superspl.at/scene/56496eab) | The Bolton Priory scan as a splat stream that the splats add-on reads: an index and 84 chunk files of SPZ, so a page downloads the parts of the scan that its view needs | Dok11 | [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/) | 2026-11-02 | Converted from splats/bolton-priory by tools/samples/splats/bolton-priory.ts in the engine repository: turned upright, with the ground at height 0 and the site centered over the origin, keeping each splat's first spherical-harmonic band, cut into chunks and written as SPZ files with a stream index. | 85, 27.57 MB |
 
 <!-- manifest:end -->

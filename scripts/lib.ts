@@ -38,7 +38,9 @@ export type Origin =
 	/** A model that a Blender script in another repository builds: `script` links to it. */
 	| { kind: 'blender'; script: string }
 	/** A file whose site lets only a signed-in account download it: `url` is the page to download it from. */
-	| { kind: 'manual'; url: string };
+	| { kind: 'manual'; url: string }
+	/** Files that a script in another repository converts from another asset here: `script` links to it. */
+	| { kind: 'converted'; script: string; from: string };
 
 export interface FileEntry {
 	path: string;
