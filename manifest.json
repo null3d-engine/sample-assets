@@ -5589,7 +5589,7 @@
 		{
 			"id": "showcase/island",
 			"title": "Island trees and oleander",
-			"purpose": "The plants of the engine's island showcase scene: a Mediterranean stone pine, an olive, a holm oak and a flowering oleander, each with lower levels of detail",
+			"purpose": "The plants of the engine's island showcase scene: a Mediterranean stone pine, an olive, a holm oak and a flowering oleander, each with lower levels of detail and a card for its far copies",
 			"authors": [
 				{
 					"name": "null3D contributors"
@@ -5609,13 +5609,13 @@
 			"files": [
 				{
 					"path": "sources/showcase/island/shrubs.glb",
-					"bytes": 202116,
-					"sha256": "b4ea7d36a5156d243dee3063b2d0b68c44c2c8ea76b698d92bbad05026e600c4"
+					"bytes": 236344,
+					"sha256": "a57758701165a9fbbdf649ffd23c34f37b201122838c589e990fff600fae18f7"
 				},
 				{
 					"path": "sources/showcase/island/trees.glb",
-					"bytes": 949836,
-					"sha256": "65f7b7a22c3cbf0b1022a32ae9381357dd774a9f80dc72f0c8df1295024d784b"
+					"bytes": 1194088,
+					"sha256": "ee679762bcf087a5fa735f628586864e17a435c3fae50ab41c266c185b1772f2"
 				}
 			]
 		},
