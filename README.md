@@ -55,7 +55,7 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 
 <!-- manifest:start -->
 
-97 assets, 690 files, 268.27 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
+97 assets, 690 files, 268.37 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
 
 ### Khronos glTF sample models
 
@@ -185,7 +185,7 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 
 | Asset | Title | Purpose | Authors | Licence | Fetched | Changes | Files |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| `showcase/creek` | [Creek trees, plants and cave](https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek.py) | The organic models of the engine's Creek showcase scene: oak, beech and birch trees, a fern, a hosta, a shrub, wildflowers and a rocky cave mouth | null3D contributors | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-10-11 | Built in Blender 5.2 by tools/samples/blender/creek.py in the engine repository, with every texture made by the script. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into each file, by tools/samples/blender/creek.ts. | 3, 3.09 MB |
+| `showcase/creek` | [Creek trees, plants and cave](https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek.py) | The organic models of the engine's Creek showcase scene: oak, beech and birch trees, a fern, a hosta, a shrub, wildflowers and a rocky cave mouth | null3D contributors | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-11-18 | Built in Blender 5.3 by tools/samples/blender/creek.py in the engine repository, with every texture made by the script. Each tree and plant carries its sway in its second texture coordinates: the bend weight from its root to its tips, and a phase for each branch. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into each file, by tools/samples/blender/creek.ts. | 3, 3.18 MB |
 
 ### Gaussian splats
 
