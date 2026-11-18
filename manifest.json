@@ -5587,6 +5587,39 @@
 			]
 		},
 		{
+			"id": "showcase/island",
+			"title": "Island trees and oleander",
+			"purpose": "The plants of the engine's island showcase scene: a Mediterranean stone pine, an olive, a holm oak and a flowering oleander, each with lower levels of detail",
+			"authors": [
+				{
+					"name": "null3D contributors"
+				}
+			],
+			"license": [
+				"CC0-1.0"
+			],
+			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island.py",
+			"fetched": "2026-11-18",
+			"changes": "Built in Blender 5.3 by tools/samples/blender/island.py in the engine repository, with every texture made by the script. Each plant carries its sway in its second texture coordinates: the bend weight from its root to its tips, and a phase for each branch. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into each file, by tools/samples/blender/island.ts.",
+			"dir": "sources/showcase/island",
+			"origin": {
+				"kind": "blender",
+				"script": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island.ts"
+			},
+			"files": [
+				{
+					"path": "sources/showcase/island/shrubs.glb",
+					"bytes": 202116,
+					"sha256": "b4ea7d36a5156d243dee3063b2d0b68c44c2c8ea76b698d92bbad05026e600c4"
+				},
+				{
+					"path": "sources/showcase/island/trees.glb",
+					"bytes": 949836,
+					"sha256": "65f7b7a22c3cbf0b1022a32ae9381357dd774a9f80dc72f0c8df1295024d784b"
+				}
+			]
+		},
+		{
 			"id": "khronos/AnimationPointerUVs",
 			"title": "Animation Pointer UVs",
 			"purpose": "KHR_animation_pointer on texture transforms: the offset, scale and rotation of each texture slot",
