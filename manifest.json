@@ -5609,13 +5609,13 @@
 			"files": [
 				{
 					"path": "sources/showcase/island/shrubs.glb",
-					"bytes": 236344,
-					"sha256": "a57758701165a9fbbdf649ffd23c34f37b201122838c589e990fff600fae18f7"
+					"bytes": 257112,
+					"sha256": "8fdd2b483641762a9cb77b0f1279ec8b30c536857972d60571188fe8a8a53600"
 				},
 				{
 					"path": "sources/showcase/island/trees.glb",
-					"bytes": 1194088,
-					"sha256": "ee679762bcf087a5fa735f628586864e17a435c3fae50ab41c266c185b1772f2"
+					"bytes": 1244580,
+					"sha256": "e790dba3f19b1a459ba90e75e0276439d5efc8b968a3df8f3fd2c24d26d0b071"
 				}
 			]
 		},
