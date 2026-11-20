@@ -126,6 +126,28 @@ export function imageSize(b: Uint8Array): { width: number; height: number } | nu
 	}
 	if (b.length > 2 && b[0] === 0x23 && b[1] === 0x3f) return hdrSize(b);
 	if (b.length > 8 && view.getUint32(0, true) === 20000630) return exrSize(b, view);
+	if (b.length >= 30 && ascii(b, 0, 4) === 'RIFF' && ascii(b, 8, 4) === 'WEBP') return webpSize(b, view);
+	return null;
+}
+
+function ascii(b: Uint8Array, at: number, length: number) {
+	return String.fromCharCode(...b.subarray(at, at + length));
+}
+
+/** A WebP picture's size from its first chunk: lossy (VP8), lossless (VP8L) or extended (VP8X). */
+function webpSize(b: Uint8Array, view: DataView) {
+	const chunk = ascii(b, 12, 4);
+	if (chunk === 'VP8 ' && b[23] === 0x9d && b[24] === 0x01 && b[25] === 0x2a) {
+		return { width: view.getUint16(26, true) & 0x3fff, height: view.getUint16(28, true) & 0x3fff };
+	}
+	if (chunk === 'VP8L' && b[20] === 0x2f) {
+		const bits = view.getUint32(21, true);
+		return { width: (bits & 0x3fff) + 1, height: ((bits >>> 14) & 0x3fff) + 1 };
+	}
+	if (chunk === 'VP8X') {
+		const side = (at: number) => (b[at] | (b[at + 1] << 8) | (b[at + 2] << 16)) + 1;
+		return { width: side(24), height: side(27) };
+	}
 	return null;
 }
 
