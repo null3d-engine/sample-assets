@@ -5630,8 +5630,8 @@
 				},
 				{
 					"path": "sources/showcase/creek-raw/pine-low/task.json",
-					"bytes": 948,
-					"sha256": "4d4ffb32ca55d6fe3be7418d2f31d5ddca5aa2c4ebd7f4e932708b188761f7fe"
+					"bytes": 894,
+					"sha256": "e016dae25b3ce18637ec1ab21359cc06528bb5fd19917e671fde7d694d4b343a"
 				}
 			]
 		},
@@ -5674,8 +5674,8 @@
 				},
 				{
 					"path": "sources/showcase/creek-raw/pine-tall/task.json",
-					"bytes": 948,
-					"sha256": "4105ee3f612bdbdeadc806b42c74277a58bf24c765e1edac12dfed5024336a07"
+					"bytes": 894,
+					"sha256": "8aabc45d3ffe9acbc571bc98209bad5dde93fd977e026079eeb526fd7ddf721d"
 				}
 			]
 		},
@@ -5751,8 +5751,8 @@
 				},
 				{
 					"path": "sources/showcase/creek-raw/statue/task.json",
-					"bytes": 1498,
-					"sha256": "ba035ae474518fdfba361d58be37e877173f5dbf016064f1ba129e6740553f53"
+					"bytes": 1290,
+					"sha256": "90e24f05a6cd65add2fe35e01597182074e0712676b8fed0f3b6773e3eabfef5"
 				}
 			]
 		},
