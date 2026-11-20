@@ -5736,8 +5736,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-raw/statue/command.txt",
-					"bytes": 412,
-					"sha256": "f2b9a0b044c8697c13556a7f1672b5b2107509d6af41dcabf0e1df5bc5cc8b17"
+					"bytes": 545,
+					"sha256": "2b2250181ded05841c1d3c89711fabd5ae6eb1183c238ec70e6a4e448d94ba3f"
 				},
 				{
 					"path": "sources/showcase/creek-raw/statue/model.glb",
