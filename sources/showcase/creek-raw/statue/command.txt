@@ -1,0 +1,2 @@
+# Run on 2026-11-20 with tripo-cli 0.11.2, in the folder that holds the four reference views.
+tripo make statue-front.png statue-left.png statue-back.png statue-right.png --model tripo-v3.1 --seed 8101 -p texture_seed=8102 -p face_limit=100000 -p pbr=true -p texture_quality=standard -p texture_version=v3.5-20260815 -p delight=true -p geometry_quality=detailed --name creek-statue -o <raw folder>/statue --json
