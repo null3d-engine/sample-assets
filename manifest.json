@@ -5567,7 +5567,7 @@
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek.py",
 			"fetched": "2026-11-18",
-			"changes": "Built in Blender 5.3 by tools/samples/blender/creek.py in the engine repository, with every texture made by the script. Each tree and plant carries its sway in its second texture coordinates: the bend weight from its root to its tips, and a phase for each branch. Blender runs with four threads, since the cave's mesh comes out in an order that depends on the thread count. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into each file, by tools/samples/blender/creek.ts.",
+			"changes": "Built in Blender 5.3 by tools/samples/blender/creek.py in the engine repository, with every texture made by the script. Each tree and plant carries its sway in its second texture coordinates: the bend weight from its root to its tips, and a phase for each branch. Blender runs with four threads, since the cave's mesh depends on the thread count: built with four threads, the cave keeps its shape, but its vertices come out in another order and 26 of its triangles take other split vertices, with other normals and colours. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into each file, by tools/samples/blender/creek.ts.",
 			"dir": "sources/showcase/creek",
 			"origin": {
 				"kind": "blender",
