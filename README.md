@@ -23,7 +23,7 @@ Run the scripts with [Bun](https://bun.sh). They need no packages.
 
 Each asset is under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) or [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Both allow copies, changes and commercial use. CC BY also asks that each copy credits the authors, links the source and the licence, and says what changed. The tables below do that for every asset, and `LICENSES/` holds the licence texts.
 
-The one exception is a model made with a generative service, such as Tripo3D, whose terms bar some commercial uses of its outputs. Such a model, and every model finished from it, is under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/): copies and changes are allowed with credit, but not commercial use. Some assets have parts under different licences, such as a CC0 model with a CC BY rig. The authors column then gives each part's licence.
+The one exception is a model made with a generative service, such as Tripo3D, whose terms bar some commercial uses of its outputs. Such a model, and every model finished from it, is under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/): copies and changes are allowed with credit, but not commercial use. Its manifest entry names the service in `generator`, and the check refuses CC BY-NC on an entry without one. Some assets have parts under different licences, such as a CC0 model with a CC BY rig. The authors column then gives each part's licence.
 
 If you copy an asset from this repository, keep its row: the title, the authors, the source link, the licence and the changes.
 

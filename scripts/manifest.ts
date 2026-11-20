@@ -115,6 +115,9 @@ function checkAttribution(manifest: Manifest, problems: string[]) {
 		for (const id of a.license) {
 			if (!manifest.licenses[id]) problems.push(`${a.id}: licence ${id} is not in the licence list`);
 		}
+		if (a.license.includes('CC-BY-NC-4.0') && !a.generator?.trim()) {
+			problems.push(`${a.id}: CC BY-NC is accepted only for a generative service's model, so it needs a generator`);
+		}
 		const partLicences = new Set(a.authors.map((p) => p.license).filter(Boolean));
 		if (partLicences.size > 0 && [...partLicences].sort().join() !== [...a.license].sort().join()) {
 			problems.push(`${a.id}: the authors' licences differ from the asset's licences`);
