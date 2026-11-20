@@ -1,6 +1,6 @@
 # null3D sample assets
 
-Models, characters, textures, environments and colour grading tables for the [null3D engine](https://github.com/null3d-engine/null3d)'s tests, benchmarks and demos. Every asset here is under CC0 or CC BY. The tables at the end give each asset's title, authors, source, licence, fetch date and changes.
+Models, characters, textures, environments and colour grading tables for the [null3D engine](https://github.com/null3d-engine/null3d)'s tests, benchmarks and demos. Every asset here is under CC0 or CC BY, except models made with a generative service, which are under CC BY-NC. The tables at the end give each asset's title, authors, source, licence, fetch date and changes.
 
 The engine repository does not copy these files. Its download script fetches this repository at a pinned commit, checks every file against `manifest.json`, and keeps one copy in a cache that all its working copies share.
 
@@ -21,7 +21,9 @@ Run the scripts with [Bun](https://bun.sh). They need no packages.
 
 ## Licences and attribution
 
-Each asset is under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) or [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Both allow copies, changes and commercial use. CC BY also asks that each copy credits the authors, links the source and the licence, and says what changed. The tables below do that for every asset, and `LICENSES/` holds both licence texts. Some assets have parts under different licences, such as a CC0 model with a CC BY rig. The authors column then gives each part's licence.
+Each asset is under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) or [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Both allow copies, changes and commercial use. CC BY also asks that each copy credits the authors, links the source and the licence, and says what changed. The tables below do that for every asset, and `LICENSES/` holds the licence texts.
+
+The one exception is a model made with a generative service, such as Tripo3D, whose terms bar some commercial uses of its outputs. Such a model, and every model finished from it, is under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/): copies and changes are allowed with credit, but not commercial use. Some assets have parts under different licences, such as a CC0 model with a CC BY rig. The authors column then gives each part's licence.
 
 If you copy an asset from this repository, keep its row: the title, the authors, the source link, the licence and the changes.
 
@@ -31,7 +33,7 @@ If you copy an asset from this repository, keep its row: the title, the authors,
 
 - Every file under `sources/` belongs to one asset in the manifest, with the size and SHA-256 that the manifest records.
 - Every asset has a title, a purpose, its authors, a source link, a licence, a fetch date and its changes.
-- Licences are CC0 or CC BY only, and each licence's text is in `LICENSES/`.
+- Licences are CC0 or CC BY, or CC BY-NC for a generative service's models, and each licence's text is in `LICENSES/`.
 - No file is larger than 40 MB.
 - No image is larger than 2048 x 2048, including images inside glTF files. The engine's asset tool encodes textures up to that size.
 - The generated assets come out the same when their scripts run again.
@@ -45,7 +47,7 @@ If you copy an asset from this repository, keep its row: the title, the authors,
 4. Run `bun scripts/manifest.ts` and fix every problem it lists.
 5. Commit, then pin the new commit in the engine repository with its download script.
 
-Never add an asset whose licence is unclear, non-commercial or no-derivatives. Leave it out and add it to the list above with the reason.
+Never add an asset whose licence is unclear or no-derivatives, or a non-commercial asset other than a generative service's model. Leave it out and add it to the list above with the reason.
 
 ## Processed files
 
