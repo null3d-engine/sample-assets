@@ -17,7 +17,7 @@ The engine repository does not copy these files. Its download script fetches thi
 | `scripts/luts.ts` | Generates the colour grading tables |
 | `out/` | Processed files from the engine's asset tool. Git ignores this folder |
 
-Run the scripts with [Bun](https://bun.sh). They need no packages.
+Run the scripts with [Bun](https://bun.sh). They need no packages. `bun test scripts` runs their tests, among them the reading of each picture's size that the check below holds to its limit.
 
 ## Licences and attribution
 
