@@ -1,0 +1,1 @@
+tripo make references/lowpine-trunk-front.png --model tripo-v3.1 --seed 3201 -p texture_seed=3201 -p face_limit=40000 -p pbr=true -p texture_quality=standard -p texture_version=v3.5-20260815 -p delight=true --name creek-pine-low -o raw/pine-low
