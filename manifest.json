@@ -5588,8 +5588,8 @@
 		},
 		{
 			"id": "showcase/island",
-			"title": "Island trees and oleander",
-			"purpose": "The plants of the engine's island showcase scene: a Mediterranean stone pine, an olive, a holm oak and a flowering oleander, each with lower levels of detail and a card for its far copies",
+			"title": "Island cypress, trees and oleander",
+			"purpose": "The plants of the engine's island showcase scene: a Mediterranean cypress, stone pine, an olive, a holm oak and a flowering oleander, each with lower levels of detail and a card for its far copies",
 			"authors": [
 				{
 					"name": "null3D contributors"
@@ -5599,8 +5599,8 @@
 				"CC0-1.0"
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island.py",
-			"fetched": "2026-11-18",
-			"changes": "Built in Blender 5.3 by tools/samples/blender/island.py in the engine repository, with every texture made by the script. Each plant carries its sway in its second texture coordinates: the bend weight from its root to its tips, and a phase for each branch. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into each file, by tools/samples/blender/island.ts.",
+			"fetched": "2026-11-22",
+			"changes": "Built in Blender 5.3 by tools/samples/blender/island.py in the engine repository, with every texture made by the script. Each plant carries its sway in its second texture coordinates: the bend weight from its root to its tips, and a phase for each branch. The cypress joined the trees file as a short trunk under a tall, dense dark-green spire, its foliage and bark painted by the script. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into each file, by tools/samples/blender/island.ts.",
 			"dir": "sources/showcase/island",
 			"origin": {
 				"kind": "blender",
@@ -5614,8 +5614,8 @@
 				},
 				{
 					"path": "sources/showcase/island/trees.glb",
-					"bytes": 1266944,
-					"sha256": "9a3e998d57fd6ac1011da80f469a36cc9c485e3bd3bd02a3c50dc05027693d4c"
+					"bytes": 1768096,
+					"sha256": "fcd29f383538a73c1bbed761319bc09584e09162484c888d0ae920d172b8a6f9"
 				}
 			]
 		},
