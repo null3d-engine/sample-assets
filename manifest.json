@@ -6391,6 +6391,34 @@
 					"sha256": "8b3c6efa646174755186b2f1d1949d059676c4854873752356bde8660947880f"
 				}
 			]
+		},
+		{
+			"id": "showcase/island-houses",
+			"title": "Island Mediterranean houses",
+			"purpose": "The houses of the engine's island showcase scene: thirteen whitewashed and stone Mediterranean forms with terracotta roofs, shuttered dark windows, framed doors, chimneys and, where a form has one, a balcony, an arcade, a pergola, a veranda or a roof terrace, each with two lower levels of detail",
+			"authors": [
+				{
+					"name": "null3D contributors"
+				}
+			],
+			"license": [
+				"CC0-1.0"
+			],
+			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-houses.py",
+			"fetched": "2026-11-22",
+			"changes": "Built in Blender 5.3 by tools/samples/blender/island-houses.py in the engine repository, with every texture painted by the script: lime whitewash, rubble stone, ashlar trim, terracotta roof tiles, painted timber, dark glazing and a cutout ivy card for the vines. Each house form carries two lower levels of detail with its measured surface error, 0.25 m and 0.80 m. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/island-houses.ts.",
+			"dir": "sources/showcase/island-houses",
+			"origin": {
+				"kind": "blender",
+				"script": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-houses.ts"
+			},
+			"files": [
+				{
+					"path": "sources/showcase/island-houses/houses.glb",
+					"bytes": 2038400,
+					"sha256": "2b6e7940eccedc0a016293f9c96a76d506828028fdbf43d25e2daa11eed4526e"
+				}
+			]
 		}
 	]
 }
