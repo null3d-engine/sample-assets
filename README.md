@@ -57,7 +57,7 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 
 <!-- manifest:start -->
 
-116 assets, 740 files, 346.59 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
+116 assets, 740 files, 346.58 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
 
 ### Khronos glTF sample models
 
