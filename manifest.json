@@ -6419,6 +6419,34 @@
 					"sha256": "68e5ccf3f2aa890c93b97d5233dfa7b341f0e9ea4348ea2eabdf85a740f14e6e"
 				}
 			]
+		},
+		{
+			"id": "showcase/island-props",
+			"title": "Island harbour and beach props",
+			"purpose": "The harbour and beach props of the engine's island showcase scene: a sailing yacht with a coachroof, mast, boom and furled sail, an open fishing boat with thwarts and an outboard, three irregular boulders, a canvas parasol, a timber sun lounger and a harbour bench, with painted gelcoat, teak, canvas, metal, glazing and stone textures",
+			"authors": [
+				{
+					"name": "null3D contributors"
+				}
+			],
+			"license": [
+				"CC0-1.0"
+			],
+			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-props.py",
+			"fetched": "2026-11-22",
+			"changes": "Built in Blender 5.3 by tools/samples/blender/island-props.py in the engine repository, with every texture painted by the script: white gelcoat, golden teak planks, woven canvas, brushed metal, dark glazing and weathered stone. The yacht, the fishing boat and the three boulders carry two lower levels of detail with their measured surface error, 0.40 m and 0.80 m. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/island-props.ts.",
+			"dir": "sources/showcase/island-props",
+			"origin": {
+				"kind": "blender",
+				"script": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-props.ts"
+			},
+			"files": [
+				{
+					"path": "sources/showcase/island-props/props.glb",
+					"bytes": 331568,
+					"sha256": "a68084cc88bc8aaa732f7262a8e6457e8b730caabfefa18a6b3707c37bf35c6f"
+				}
+			]
 		}
 	]
 }
