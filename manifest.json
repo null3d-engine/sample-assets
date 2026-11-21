@@ -6107,7 +6107,7 @@
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek_tripo.py",
 			"fetched": "2026-11-20",
-			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-statue by tools/samples/blender/creek_tripo.py in the engine repository: the base cut away, the head enlarged and the body widened, decimated to 30,000 triangles, the raw surface baked onto it, and the bronze repainted with its weathering and with fine texture on its folds and curls, its verdigris leaning green against the garden's light. The stone slab, an uneven oval of grey stone with moss in patches, is built by the script with a texture it paints. Two lower levels of each part carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
+			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-statue by tools/samples/blender/creek_tripo.py in the engine repository: the base cut away, the head enlarged and the body widened, decimated to 30,000 triangles, the raw surface baked onto it, and the bronze repainted with its weathering and with fine texture on its folds and curls. The stone slab, an uneven oval of grey stone with moss in patches, is built by the script with a texture it paints. Two lower levels of each part carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
 			"dir": "sources/showcase/creek-garden/statue",
 			"origin": {
 				"kind": "blender",
@@ -6117,8 +6117,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-garden/statue/statue.glb",
-					"bytes": 3229776,
-					"sha256": "6148c826d3c926c48f1f830046dbaab85f89aa07da1fe45ca6ee2f216c075326"
+					"bytes": 3229656,
+					"sha256": "d2f69edda1a2c5e5dde41c9b28fe7ec87f550e4d801762abdb6cc07873afafa6"
 				}
 			]
 		},
@@ -6175,8 +6175,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-garden/gate/gate.glb",
-					"bytes": 2303692,
-					"sha256": "b63f02654396d23b3e5540d6b6cd611517912e596e5d476397e04c9be2b3e000"
+					"bytes": 2303820,
+					"sha256": "9148a16bfaccc5cce19f50dfee0c43e5de4e8965dad5f84c201559cbcf33537a"
 				}
 			]
 		},
