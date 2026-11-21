@@ -1,0 +1,38 @@
+{
+  "task_id": "61450b61-de03-48b6-99eb-86479da87e6c",
+  "type": "image_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "file": {
+      "type": "jpeg",
+      "object": {
+        "key": "<redacted: Tripo3D account storage path>",
+        "bucket": "tripo-data"
+      }
+    },
+    "delight": true,
+    "texture": true,
+    "export_uv": true,
+    "face_limit": 60000,
+    "model_seed": 8701,
+    "texture_seed": 8702,
+    "model_version": "v3.1-20260211",
+    "texture_quality": "standard",
+    "texture_version": "v3.5-20260815",
+    "geometry_quality": "detailed",
+    "enable_image_autofix": false
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url"
+  ],
+  "credits_consumed": 50,
+  "created_at": "2026-11-21T07:07:42.702075Z",
+  "completed_at": "2026-11-21T07:08:55.224738Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "preview.png"
+  ]
+}
