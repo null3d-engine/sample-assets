@@ -6019,7 +6019,7 @@
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek_tripo.py",
 			"fetched": "2026-11-20",
-			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-statue by tools/samples/blender/creek_tripo.py in the engine repository: the base cut away, the head enlarged and the body widened, decimated to 30,000 triangles, the raw surface baked onto it, and the bronze repainted with its weathering. The oval stone slab is built by the script with a texture it paints. Two lower levels of each part carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
+			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-statue by tools/samples/blender/creek_tripo.py in the engine repository: the base cut away, the head enlarged and the body widened, decimated to 30,000 triangles, the raw surface baked onto it, and the bronze repainted with its weathering. The stone slab, an uneven oval of grey stone with moss in patches, is built by the script with a texture it paints. Two lower levels of each part carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
 			"dir": "sources/showcase/creek-garden/statue",
 			"origin": {
 				"kind": "blender",
@@ -6029,8 +6029,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-garden/statue/statue.glb",
-					"bytes": 3153284,
-					"sha256": "cd4e530d8cf355574b0031c689bf893b194f24a0f63f2feb2d478d098f9dd35c"
+					"bytes": 3166536,
+					"sha256": "a6b79d9924f4ab2c15ef633bdf220c75ea7ac81a6e2e59059dd528e7c3afa13d"
 				}
 			]
 		},
