@@ -5620,6 +5620,34 @@
 			]
 		},
 		{
+			"id": "showcase/island-town",
+			"title": "Island town landmarks",
+			"purpose": "The landmarks of the engine's island showcase scene: a whitewashed church with a blue ribbed dome, an arched front and a bell tower, a hilltop keep, a harbour lighthouse and three waterfront houses, each with two lower levels of detail",
+			"authors": [
+				{
+					"name": "null3D contributors"
+				}
+			],
+			"license": [
+				"CC0-1.0"
+			],
+			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-town.py",
+			"fetched": "2026-11-22",
+			"changes": "Built in Blender 5.3 by tools/samples/blender/island-town.py in the engine repository, with every texture painted by the script: whitewashed walls, ashlar stone, terracotta roofs, a blue dome, timber and glazing. Each part carries two lower levels of detail with its measured surface error. Optimized by the engine asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/island-town.ts.",
+			"dir": "sources/showcase/island-town",
+			"origin": {
+				"kind": "blender",
+				"script": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-town.ts"
+			},
+			"files": [
+				{
+					"path": "sources/showcase/island-town/town.glb",
+					"bytes": 415512,
+					"sha256": "fed3608a1bbeec9021acd9a648fd77a82a55c4f891ae214a513204ffe301f6ae"
+				}
+			]
+		},
+		{
 			"id": "khronos/AnimationPointerUVs",
 			"title": "Animation Pointer UVs",
 			"purpose": "KHR_animation_pointer on texture transforms: the offset, scale and rotation of each texture slot",
