@@ -1,0 +1,2 @@
+# Run on 2026-11-21 with tripo-cli 0.11.2, in the Creek garden's coordination folder.
+tripo make references/maple-orange-trunk.png --model tripo-v3.1 --seed 8701 -p texture_seed=8702 -p face_limit=60000 -p pbr=true -p texture_quality=standard -p texture_version=v3.5-20260815 -p delight=true -p geometry_quality=detailed --name creek-maple-trunk -o raw/maple-trunk --json
