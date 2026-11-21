@@ -5594,7 +5594,7 @@
 		{
 			"id": "showcase/creek-pines",
 			"title": "Creek cloud-pruned pines",
-			"purpose": "The Creek garden's tall and low cloud-pruned pines, each a wood node and a needles node with two lower levels of detail, finished from raw Tripo3D trunks",
+			"purpose": "The Creek garden's wide tall, narrow tall and low cloud-pruned pines, each a wood node and a needles node with two lower levels of detail, finished from raw Tripo3D trunks",
 			"authors": [
 				{
 					"name": "null3D contributors"
@@ -5604,8 +5604,8 @@
 				"CC-BY-NC-4.0"
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek.py",
-			"fetched": "2026-11-20",
-			"changes": "Built in Blender 5.3, with four threads, by tools/samples/blender/creek.py in the engine repository from the raw trunks showcase/creek-raw-pine-tall and showcase/creek-raw-pine-low (Tripo3D H3.1), whose SHA-256 the script checks. The script trains each crown flat, cuts the bare twig ends, keeps the trunks' own bark maps, and adds layers of needle pads with needle cards that it paints. Each part carries its sway in its second texture coordinates, and each lower level its measured surface error. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek.ts.",
+			"fetched": "2026-11-21",
+			"changes": "Built in Blender 5.3, with four threads, by tools/samples/blender/creek.py in the engine repository from the raw trunks showcase/creek-raw-pine-tall and showcase/creek-raw-pine-low (Tripo3D H3.1), whose SHA-256 the script checks; the wide and the narrow pine share the tall trunk. The script trains each tier of limbs level into a layer of needle pads, cuts each limb back to its last pad, drops wood that the cuts part from the trunk, keeps the trunks' own bark maps, and adds needle cards that it paints. Each part carries its sway in its second texture coordinates, and each lower level its measured surface error. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek.ts.",
 			"dir": "sources/showcase/creek-pines",
 			"origin": {
 				"kind": "blender",
@@ -5615,8 +5615,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-pines/pines.glb",
-					"bytes": 3340168,
-					"sha256": "e39b2f1b8d4ee1c5fa8c015cafee3f258fec470319aeeba7488c1f082a8195a2"
+					"bytes": 3397660,
+					"sha256": "3d24d99116e85289fdaa92b772047fe8254502c8a0c1ff27cbbb8e772a59a527"
 				}
 			]
 		},
@@ -6133,6 +6133,35 @@
 					"path": "sources/showcase/creek-garden/gate/gate.glb",
 					"bytes": 2289492,
 					"sha256": "887be877e6b0294240cb3056beccc194f264ecaa5a3302fde53b6cddfe352fe3"
+				}
+			]
+		},
+		{
+			"id": "showcase/creek-garden-dragon",
+			"title": "Creek garden roof dragon",
+			"purpose": "The glazed roof dragon that stands at each end of the Creek garden gate's ridge, 0.9 m tall",
+			"authors": [
+				{
+					"name": "null3D contributors"
+				}
+			],
+			"license": [
+				"CC-BY-NC-4.0"
+			],
+			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek_tripo.py",
+			"fetched": "2026-11-21",
+			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-dragon by tools/samples/blender/creek_tripo.py in the engine repository: turned so its head faces the front, its base cut level and its wave slab's rear overhang cut away, decimated to 3,000 triangles and laid out afresh, the raw color and relief baked onto it, its body's scales darkened with darker joints, its tail fan toned grey, its belly band made grey, and a low roughness for the glaze. Two lower levels carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
+			"dir": "sources/showcase/creek-garden/dragon",
+			"origin": {
+				"kind": "blender",
+				"script": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek_tripo.ts"
+			},
+			"generator": "Tripo3D",
+			"files": [
+				{
+					"path": "sources/showcase/creek-garden/dragon/dragon.glb",
+					"bytes": 689972,
+					"sha256": "c0faa84f705bb169f1c0c2aff60bb05361f51632b831e7cfa12c34157f3f6b68"
 				}
 			]
 		},
