@@ -6107,7 +6107,7 @@
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek_tripo.py",
 			"fetched": "2026-11-20",
-			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-statue by tools/samples/blender/creek_tripo.py in the engine repository: the base cut away, the head enlarged and the body widened, decimated to 30,000 triangles, the raw surface baked onto it, and the bronze repainted with its weathering and with fine texture on its folds and curls. The stone slab, an uneven oval of grey stone with moss in patches, is built by the script with a texture it paints. Two lower levels of each part carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
+			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-statue by tools/samples/blender/creek_tripo.py in the engine repository: the base cut away, the head enlarged and the body widened, decimated to 30,000 triangles, the raw surface baked onto it, and the bronze repainted with its weathering and with fine texture on its folds and curls, its verdigris leaning green against the garden's light. The stone slab, an uneven oval of grey stone with moss in patches, is built by the script with a texture it paints. Two lower levels of each part carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
 			"dir": "sources/showcase/creek-garden/statue",
 			"origin": {
 				"kind": "blender",
@@ -6117,8 +6117,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-garden/statue/statue.glb",
-					"bytes": 3229656,
-					"sha256": "d2f69edda1a2c5e5dde41c9b28fe7ec87f550e4d801762abdb6cc07873afafa6"
+					"bytes": 3229776,
+					"sha256": "6148c826d3c926c48f1f830046dbaab85f89aa07da1fe45ca6ee2f216c075326"
 				}
 			]
 		},
@@ -6146,8 +6146,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-garden/lantern/lantern.glb",
-					"bytes": 585408,
-					"sha256": "0c38a8a8766ae90d759534272dfc1f39a163cb5e393c6f6117135147447a9e69"
+					"bytes": 585352,
+					"sha256": "c010e1780bd768932c3ecd35b11f816a26fa385384746cc1a21f0b5eb3e3f44c"
 				}
 			]
 		},
@@ -6165,7 +6165,7 @@
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek_tripo.py",
 			"fetched": "2026-11-20",
-			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-gate by tools/samples/blender/creek_tripo.py in the engine repository: the rear frame cut away flush with the front posts' backs and below the side ties, the front posts stood upright and moved closer together with a shorter beam, a narrowed and weathered copy of the left front post set behind it as the rear post, sized to 3.9 m in the raw model's proportion, decimated to 6,000 triangles and laid out afresh, the raw color and relief baked onto it, the timber toned a weathered grey-brown with darker feet, the tiles darkened, and the faces that close the cut painted with the front faces' grain. Two lower levels carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
+			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-gate by tools/samples/blender/creek_tripo.py in the engine repository: the rear frame cut away flush with the front posts' backs and below the side ties, the front posts stood upright and moved closer together with a shorter beam, a narrowed and weathered copy of the left front post set behind it as the rear post, sized to 3.9 m in the raw model's proportion, decimated to 6,000 triangles and laid out afresh, the raw color and relief baked onto it, the timber toned a pale weathered grey-brown with darker feet, the tiles toned a light cool grey against the garden's light, and the faces that close the cut painted with the front faces' grain. Two lower levels carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
 			"dir": "sources/showcase/creek-garden/gate",
 			"origin": {
 				"kind": "blender",
@@ -6175,8 +6175,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-garden/gate/gate.glb",
-					"bytes": 2289492,
-					"sha256": "887be877e6b0294240cb3056beccc194f264ecaa5a3302fde53b6cddfe352fe3"
+					"bytes": 2313380,
+					"sha256": "5f59f815c0220ad8a8e5315a4a654f9e54ca69f9fcb644ba54e7b84f3163b1f9"
 				}
 			]
 		},
@@ -6194,7 +6194,7 @@
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek_tripo.py",
 			"fetched": "2026-11-21",
-			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-dragon by tools/samples/blender/creek_tripo.py in the engine repository: turned so its head faces the front, its base cut level and its wave slab's rear overhang cut away, decimated to 3,000 triangles and laid out afresh, the raw color and relief baked onto it, its body's scales darkened with darker joints, its tail fan toned a grey one step paler than the body, its teeth and mane kept white, its belly band made grey, and a low roughness for the glaze. Two lower levels carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
+			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-dragon by tools/samples/blender/creek_tripo.py in the engine repository: turned so its head faces the front, its base cut level and its wave slab's rear overhang cut away, decimated to 3,000 triangles and laid out afresh, the raw color and relief baked onto it, its body's scales darkened with darker joints to the end of its tail's curl, its tail fan kept a pale grey and its teeth and mane white, its belly band made grey, and a low roughness for the glaze. Two lower levels carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
 			"dir": "sources/showcase/creek-garden/dragon",
 			"origin": {
 				"kind": "blender",
@@ -6204,8 +6204,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-garden/dragon/dragon.glb",
-					"bytes": 690580,
-					"sha256": "ee113c2e3c468dabe48643472f2b5ad162213ba66f2f143ad2deb304eee7a27d"
+					"bytes": 690612,
+					"sha256": "3cfd0bd261aea7cc0e0220fd4aaa74903932344a8fd8b02414dc62c05f6b2042"
 				}
 			]
 		},
