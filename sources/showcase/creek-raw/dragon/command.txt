@@ -1,0 +1,5 @@
+# Run on 2026-11-21 with tripo-cli 0.11.2, in the Creek garden's coordination folder.
+tripo make logs/statue/dragon/inputs/dragon-front.png logs/statue/dragon/inputs/dragon-back.png --model tripo-v3.1 --seed 8501 -p texture_seed=8502 -p face_limit=60000 -p pbr=true -p texture_quality=standard -p texture_version=v3.5-20260815 -p delight=true -p geometry_quality=detailed --name creek-dragon -o raw/dragon --json
+# The inputs are the two passed views, copied byte for byte: dragon-front.png is
+# references/dragon/dragon-left.png and dragon-back.png is references/dragon/dragon-right.png. Multiview
+# needs a front view, and the two side views stand half a turn apart, so they take the front and back slots.

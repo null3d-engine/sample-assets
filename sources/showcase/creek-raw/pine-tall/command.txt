@@ -1,0 +1,1 @@
+tripo make references/pine-trunk-front.png --model tripo-v3.1 --seed 3101 -p texture_seed=3101 -p face_limit=40000 -p pbr=true -p texture_quality=standard -p texture_version=v3.5-20260815 -p delight=true --name creek-pine-tall -o raw/pine-tall
