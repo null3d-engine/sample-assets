@@ -6194,7 +6194,7 @@
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek_tripo.py",
 			"fetched": "2026-11-21",
-			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-dragon by tools/samples/blender/creek_tripo.py in the engine repository: turned so its head faces the front, its base cut level and its wave slab's rear overhang cut away, decimated to 3,000 triangles and laid out afresh, the raw color and relief baked onto it, its body's scales darkened with darker joints, its tail fan toned grey, its belly band made grey, and a low roughness for the glaze. Two lower levels carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
+			"changes": "Finished in Blender 5.3 from the raw Tripo3D model showcase/creek-raw-dragon by tools/samples/blender/creek_tripo.py in the engine repository: turned so its head faces the front, its base cut level and its wave slab's rear overhang cut away, decimated to 3,000 triangles and laid out afresh, the raw color and relief baked onto it, its body's scales darkened with darker joints, its tail fan toned a grey one step paler than the body, its teeth and mane kept white, its belly band made grey, and a low roughness for the glaze. Two lower levels carry their measured errors. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek_tripo.ts, which runs Blender with four threads.",
 			"dir": "sources/showcase/creek-garden/dragon",
 			"origin": {
 				"kind": "blender",
@@ -6204,8 +6204,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-garden/dragon/dragon.glb",
-					"bytes": 689972,
-					"sha256": "c0faa84f705bb169f1c0c2aff60bb05361f51632b831e7cfa12c34157f3f6b68"
+					"bytes": 690580,
+					"sha256": "ee113c2e3c468dabe48643472f2b5ad162213ba66f2f143ad2deb304eee7a27d"
 				}
 			]
 		},
