@@ -5634,7 +5634,7 @@
 			],
 			"source": "https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/creek.py",
 			"fetched": "2026-11-21",
-			"changes": "Built in Blender 5.3, with four threads, by tools/samples/blender/creek.py in the engine repository, with every texture made by the script. Each shrub is a mound of pads, each an opaque body that wears a leaf mat in windows of its own, with cut-out tufts of tiny leaves; the autumn clump is several small mounds, each in its own colour on pale leaves; the rim conifer is a mound of needle sprays; the moss cushion is one low matt mound. Each part carries its sway in its second texture coordinates, and each lower level its measured surface error. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek.ts.",
+			"changes": "Built in Blender 5.3, with four threads, by tools/samples/blender/creek.py in the engine repository, with every texture made by the script. Each shrub is a mound of pads, each an opaque body that wears a leaf mat in windows of its own, with cut-out tufts of tiny leaves; the autumn clump is several small mounds on pale leaves, each in two tones that run into its neighbours'; the rim conifer is four drooping layers of needle sprays with golden tips, reaching further and lower on one side; the moss cushion is one low matt mound. Each part carries its sway in its second texture coordinates, and each lower level its measured surface error. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/creek.ts.",
 			"dir": "sources/showcase/creek-garden-plants",
 			"origin": {
 				"kind": "blender",
@@ -5643,8 +5643,8 @@
 			"files": [
 				{
 					"path": "sources/showcase/creek-garden-plants/garden.glb",
-					"bytes": 1077384,
-					"sha256": "9ab495a90cb95eef14c0712aa62537f55699ad0502d9386a3c0e1b9e33ea0dce"
+					"bytes": 1245140,
+					"sha256": "0b99e8487da0e4cfc7310d5383f75c8fe2fc06587c65b0c9f601ebd35763e2ef"
 				}
 			]
 		},
