@@ -17,9 +17,14 @@ commit `18e8e33`, under `generated/island/`. Their prompts are in `prompts/` bes
 | `minibus/` | `generated/island/minibus-front.png` | `98cfc98580aa4ed1deb806609d6cb28043773e23dfee32286c03cfb4a81e3a7e` | `01a200de-6f29-7dd0-b426-f702b528a839` | `28093e96-b897-4eed-86f3-2ba3a68f5a1a` | 30 |
 | `villager-walk/` | the villager above | same | same | `c05316a7-e62d-4b5b-ae74-6b9a913eaf71` | 10 |
 
-`villager-walk/` is the villager's rigged model retargeted with an in-place `preset:walk` clip, with
-geometry included. Its task records the rigged model as `0ce39537-7dd3-4704-b79d-c72c1e10fa64`.
-The four tasks together used 100 credits.
+`villager-walk/` is the villager rigged with Tripo3D's biped (the rig task
+`0ce39537-7dd3-4704-b79d-c72c1e10fa64`, 25 credits) and then retargeted with an in-place
+`preset:walk` clip, with geometry included. The rig's output was an intermediate, so it is not in
+these folders.
+
+The four copied tasks cost 100 credits: villager 30, walk 10, hatchback 30 and minibus 30. The rig
+that the walk depends on adds 25, so the pipeline cost 125 credits. The account records 125 spent
+and a balance of 465.
 
 ## The files
 
