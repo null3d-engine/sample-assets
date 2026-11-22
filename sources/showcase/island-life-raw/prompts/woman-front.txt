@@ -1,0 +1,9 @@
+Endpoint: google/nano-banana-2.1 (fal.ai), text to image, 1K, PNG, square.
+Request id: 01a20100-4065-7481-9621-754c736f9f63
+Seed: not returned by the model.
+Kept: all one image.
+
+Prompt:
+Photorealistic full-body studio photograph of one Mediterranean woman in her forties standing upright, facing the camera, arms hanging relaxed a little away from the body, feet together. Knee-length simple cotton summer dress in warm terracotta red, short sleeves, brown flat sandals. Olive skin, dark hair tied back. The whole person from head to feet fills about eighty per cent of the frame, centred. Plain light-grey seamless studio backdrop, soft even lighting, no shadow cast on the backdrop, no props, no text, no second person. Square 1:1.
+
+Inputs: none. Made from the brief, as the villager shot is: the island's concepts stay in the owner's Higgsfield gallery, and they show people only at a distance.

@@ -1,0 +1,33 @@
+{
+  "task_id": "a31f3e57-1f42-4be9-8d9d-f8a6403d9e27",
+  "type": "image_to_model",
+  "status": "success",
+  "input": {
+    "pbr": false,
+    "file": {
+      "type": "jpeg",
+      "object": "<redacted account storage path>"
+    },
+    "delight": false,
+    "texture": true,
+    "auto_size": true,
+    "export_uv": true,
+    "face_limit": 8000,
+    "model_version": "v3.1-20260211",
+    "texture_version": "v3.5-20260815",
+    "geometry_quality": "standard",
+    "enable_image_autofix": false
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url"
+  ],
+  "credits_consumed": 30,
+  "created_at": "2026-11-22T01:36:22.262324Z",
+  "completed_at": "2026-11-22T01:37:37.952261Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "preview.png"
+  ]
+}
