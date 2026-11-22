@@ -1,0 +1,9 @@
+Endpoint: google/nano-banana-2.1 (fal.ai), text to image, 1K, PNG, square.
+Request id: 01a20100-8c74-7ce3-9b00-ed405fcfbde5
+Seed: not returned by the model.
+Kept: all one image.
+
+Prompt:
+Photorealistic full-body studio photograph of one young Mediterranean man in his twenties standing upright, facing the camera, arms hanging relaxed a little away from the body, feet together. White cotton T-shirt, khaki shorts to the knee, white canvas trainers. Slim build, short dark curly hair. The whole person from head to feet fills about eighty per cent of the frame, centred. Plain light-grey seamless studio backdrop, soft even lighting, no shadow cast on the backdrop, no props, no text, no second person. Square 1:1.
+
+Inputs: none. Made from the brief, as the villager shot is: the island's concepts stay in the owner's Higgsfield gallery, and they show people only at a distance.

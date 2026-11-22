@@ -1,0 +1,21 @@
+{
+  "task_id": "64cfc449-1127-4e23-a519-69f79dae6a9b",
+  "type": "animate_retarget",
+  "status": "success",
+  "input": {
+    "animation": "preset:walk",
+    "out_format": "glb",
+    "animate_in_place": true,
+    "original_model_id": "2e866ec2-5e7b-4295-881c-cc3c7631cfaf",
+    "export_with_geometry": true
+  },
+  "output_fields": [
+    "model_url"
+  ],
+  "credits_consumed": 10,
+  "created_at": "2026-11-22T02:14:04.344892Z",
+  "completed_at": "2026-11-22T02:14:09.246423Z",
+  "files": [
+    "model.glb"
+  ]
+}
