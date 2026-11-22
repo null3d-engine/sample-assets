@@ -28,7 +28,10 @@ import {
 	walk,
 } from './lib.ts';
 
-/** Licences the repository accepts: CC0 and CC BY, and CC BY-NC for a generative service's model. */
+/**
+ * Licences the repository accepts: CC0 and CC BY, which allow redistribution and commercial use, and
+ * CC BY-NC, only for models made with a generative service whose terms bar some commercial uses.
+ */
 const ACCEPTED = /^(CC0-1\.0|CC-BY-[34]\.0|CC-BY-NC-4\.0)$/;
 const START = '<!-- manifest:start -->';
 const END = '<!-- manifest:end -->';

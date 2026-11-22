@@ -1,0 +1,3 @@
+# Run on 2026-11-20 with tripo-cli 0.11.2, in the Creek garden's coordination folder. The run itself
+# was made from inside references/ with the bare file names, which sends the same request.
+tripo make references/statue-front.png references/statue-left.png references/statue-back.png references/statue-right.png --model tripo-v3.1 --seed 8101 -p texture_seed=8102 -p face_limit=100000 -p pbr=true -p texture_quality=standard -p texture_version=v3.5-20260815 -p delight=true -p geometry_quality=detailed --name creek-statue -o raw/statue --json

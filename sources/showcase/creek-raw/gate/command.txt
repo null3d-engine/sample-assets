@@ -1,0 +1,2 @@
+# Run on 2026-11-20 with tripo-cli 0.11.2, in the Creek garden's coordination folder.
+tripo make references/gate-front.png --seed 8301 -p texture_seed=8302 -p face_limit=60000 -p geometry_quality=detailed --model tripo-v3.1 -p pbr=true -p texture_quality=standard -p texture_version=v3.5-20260815 -p delight=true --json --name creek-gate -o raw/gate
