@@ -1,0 +1,9 @@
+Endpoint: google/nano-banana-2.1 (fal.ai), text to image, 1K, PNG, square.
+Request id: 01a200de-2fcb-78e2-b150-5a883b179b6a
+Seed: not returned by the model.
+Kept: all one image.
+
+Prompt:
+Photorealistic studio photograph of one small white European hatchback car, three-quarter front view from slightly above, the whole car in frame and filling about eighty per cent of the picture. Compact five-door town car of the late 1990s, plain white paint, black tyres, dark tinted glass, simple steel wheels. Plain light-grey seamless studio backdrop, soft even lighting, soft shadow under the car only, no people, no text, no number plate reading. Square 1:1.
+
+Inputs: none. The island's concept pictures stay in the owner's Higgsfield gallery (D-288 lists their job ids), so this shot is made from the brief's description rather than from a crop of them. The concept shows cars only at a distance.

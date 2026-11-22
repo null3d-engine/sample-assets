@@ -1,6 +1,6 @@
 # null3D sample assets
 
-Models, characters, textures, environments and colour grading tables for the [null3D engine](https://github.com/null3d-engine/null3d)'s tests, benchmarks and demos. Every asset here is under CC0 or CC BY. The tables at the end give each asset's title, authors, source, licence, fetch date and changes.
+Models, characters, textures, environments and colour grading tables for the [null3D engine](https://github.com/null3d-engine/null3d)'s tests, benchmarks and demos. Every asset here is under CC0 or CC BY, except models made with a generative service, which are under CC BY-NC. The tables at the end give each asset's title, authors, source, licence, fetch date and changes.
 
 The engine repository does not copy these files. Its download script fetches this repository at a pinned commit, checks every file against `manifest.json`, and keeps one copy in a cache that all its working copies share.
 
@@ -21,7 +21,9 @@ Run the scripts with [Bun](https://bun.sh). They need no packages.
 
 ## Licences and attribution
 
-Each asset is under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) or [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Both allow copies, changes and commercial use. CC BY also asks that each copy credits the authors, links the source and the licence, and says what changed. The tables below do that for every asset, and `LICENSES/` holds both licence texts. Some assets have parts under different licences, such as a CC0 model with a CC BY rig. The authors column then gives each part's licence.
+Each asset is under [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) or [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Both allow copies, changes and commercial use. CC BY also asks that each copy credits the authors, links the source and the licence, and says what changed. The tables below do that for every asset, and `LICENSES/` holds the licence texts.
+
+The one exception is a model made with a generative service, such as Tripo3D, whose terms bar some commercial uses of its outputs. Such a model, and every model finished from it, is under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/): copies and changes are allowed with credit, but not commercial use. Its manifest entry names the service in `generator`, and the check refuses CC BY-NC on an entry without one. Some assets have parts under different licences, such as a CC0 model with a CC BY rig. The authors column then gives each part's licence.
 
 If you copy an asset from this repository, keep its row: the title, the authors, the source link, the licence and the changes.
 
@@ -31,7 +33,7 @@ If you copy an asset from this repository, keep its row: the title, the authors,
 
 - Every file under `sources/` belongs to one asset in the manifest, with the size and SHA-256 that the manifest records.
 - Every asset has a title, a purpose, its authors, a source link, a licence, a fetch date and its changes.
-- Licences are CC0 or CC BY only, and each licence's text is in `LICENSES/`.
+- Licences are CC0 or CC BY, or CC BY-NC for a generative service's models, and each licence's text is in `LICENSES/`.
 - No file is larger than 40 MB.
 - No image is larger than 2048 x 2048, including images inside glTF files. The engine's asset tool encodes textures up to that size.
 - The generated assets come out the same when their scripts run again.
@@ -45,7 +47,7 @@ If you copy an asset from this repository, keep its row: the title, the authors,
 4. Run `bun scripts/manifest.ts` and fix every problem it lists.
 5. Commit, then pin the new commit in the engine repository with its download script.
 
-Never add an asset whose licence is unclear, non-commercial or no-derivatives. Leave it out and add it to the list above with the reason.
+Never add an asset whose licence is unclear or no-derivatives, or a non-commercial asset other than a generative service's model. Leave it out and add it to the list above with the reason.
 
 ## Processed files
 
@@ -55,7 +57,7 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 
 <!-- manifest:start -->
 
-101 assets, 695 files, 275.68 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
+103 assets, 711 files, 282.56 MB. Generated from `manifest.json` by `bun scripts/manifest.ts --write`.
 
 ### Khronos glTF sample models
 
@@ -190,6 +192,8 @@ The engine's asset tool turns these sources into the files that pages load: mesh
 | `showcase/island-town` | [Island town landmarks](https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-town.py) | The landmarks of the engine's island showcase scene: a whitewashed church with a blue ribbed dome, an arched front and a bell tower, a hilltop keep, a harbour lighthouse and three waterfront houses, each with its own levels of detail | null3D contributors | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-11-22 | Built in Blender 5.3 by tools/samples/blender/island-town.py in the engine repository, with every texture painted by the script: whitewashed walls, ashlar stone, terracotta roofs, a blue dome, timber and glazing. Each part carries one or two lower levels of detail at a stated surface error. Optimized by the engine asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/island-town.ts. | 1, 0.48 MB |
 | `showcase/island-houses` | [Island Mediterranean houses](https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-houses.py) | The houses of the engine's island showcase scene: thirteen whitewashed and stone Mediterranean forms with terracotta roofs, shuttered dark windows, framed doors, chimneys and, where a form has one, a balcony, an arcade, a pergola, a veranda or a roof terrace, each with two lower levels of detail | null3D contributors | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-11-22 | Built in Blender 5.3 by tools/samples/blender/island-houses.py in the engine repository, with every texture painted by the script: lime whitewash, rubble stone, ashlar trim, terracotta roof tiles, painted timber, dark glazing and a cutout ivy card for the vines. Each house form carries two lower levels of detail with its measured surface error, 0.25 m and 0.80 m. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/island-houses.ts. | 1, 2.04 MB |
 | `showcase/island-props` | [Island harbour and beach props](https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-props.py) | The harbour and beach props of the engine's island showcase scene: a sailing yacht with a coachroof, mast, boom and furled sail, an open fishing boat with thwarts and an outboard, three irregular boulders, a canvas parasol, a timber sun lounger and a harbour bench, with painted gelcoat, teak, canvas, metal, glazing and stone textures | null3D contributors | [CC0-1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 2026-11-22 | Built in Blender 5.3 by tools/samples/blender/island-props.py in the engine repository, with every texture painted by the script: white gelcoat, golden teak planks, woven canvas, brushed metal, dark glazing and weathered stone. The yacht, the fishing boat and the three boulders carry two lower levels of detail with their measured surface error, 0.40 m and 0.80 m. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/island-props.ts. | 1, 0.33 MB |
+| `showcase/island-life-raw` | [Island villager and vehicles, raw](https://developers.tripo3d.ai) | The raw Tripo3D models of the island showcase's villager, hatchback and minibus, with the villager's in-place walk clip. The engine's island-life.py finishes them into the people and traffic models; the engine does not name these files and does not load them. | null3D contributors | [CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/) | 2026-11-22 | Generated by Tripo3D image to model, model v3.1-20260211 and texture v3.5-20260815 at standard quality with a face limit of 8,000: the villager (7,598 triangles, task 33d0b431-b4c7-41d4-9735-c4b1d48b3415, 30 credits), the hatchback (7,256 triangles, task a31f3e57-1f42-4be9-8d9d-f8a6403d9e27, 30 credits) and the minibus (7,009 triangles, task 28093e96-b897-4eed-86f3-2ba3a68f5a1a, 30 credits). The villager was rigged and retargeted with an in-place preset:walk clip, with geometry, as task c05316a7-e62d-4b5b-ae74-6b9a913eaf71 (10 credits); its rigged model is recorded as 0ce39537-7dd3-4704-b79d-c72c1e10fa64. The inputs were the reference shots in the scene-references repository at 18e8e33, under generated/island, made with google/nano-banana-2.1 on fal.ai; their prompts are in prompts/. Files as downloaded: model.glb for each; task.json with the account storage path replaced by a placeholder; preview.webp, Tripo3D's WebP preview; and RAW.md, which records each shot's path, SHA-256, fal request id, task id and credits. | 15, 4.71 MB |
+| `showcase/island-life` | [Island villager and vehicles](https://github.com/null3d-engine/null3d/blob/main/tools/samples/blender/island-life.py) | The people and traffic of the engine's island showcase scene: the villager with its walk clip, split into body, hair, shirt, trousers and shoes; a standing villager split the same way, with two lower levels, for people drawn far off; a hatchback split into hull, glass, tyres and trim; and a minibus split into hull, band, glass, tyres and trim, each vehicle with two lower levels of detail | null3D contributors | [CC-BY-NC-4.0](https://creativecommons.org/licenses/by-nc/4.0/) | 2026-11-22 | Built in Blender 5.3 by tools/samples/blender/island-life.py in the engine repository from the raw Tripo3D models in showcase/island-life-raw, whose SHA-256 the script checks. The script turns each raw model -90 degrees about the vertical axis to the engine's forward axis, sets the villager at 1.75 m, the hatchback at 3.7 m and the minibus at 4.9 m, and stands each on its feet or tyres. It cuts each mesh into the parts a scene can tint, by the colour each face samples from its own texture atlas and its height, and keeps the raw texture on every part. The walking villager keeps its skeleton and walk clip; a skinned mesh cannot take levels of detail, so the standing villager is the far copy's proxy, with two levels. Each vehicle part carries two levels whose surface errors the script measures. Optimized by the engine's asset tool (meshopt, KTX2), with the textures packed into the file, by tools/samples/blender/island-life.ts. | 1, 2.17 MB |
 
 ### Gaussian splats
 

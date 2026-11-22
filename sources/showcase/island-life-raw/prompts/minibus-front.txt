@@ -1,0 +1,9 @@
+Endpoint: google/nano-banana-2.1 (fal.ai), text to image, 1K, PNG, square.
+Request id: 01a200de-6f29-7dd0-b426-f702b528a839
+Seed: not returned by the model.
+Kept: all one image.
+
+Prompt:
+Photorealistic studio photograph of one small blue-and-white Mediterranean minibus, three-quarter front view from slightly above, the whole vehicle in frame and filling about eighty per cent of the picture. Eleven-seat minibus with a white upper body and a strong mid-blue lower band, large windows, black tyres, simple chrome-free trim, no advertising. Plain light-grey seamless studio backdrop, soft even lighting, soft shadow under the vehicle only, no people, no text, no number plate reading. Square 1:1.
+
+Inputs: none. The island's concept pictures stay in the owner's Higgsfield gallery (D-288 lists their job ids), so this shot is made from the brief's description rather than from a crop of them. The concept shows no minibus.

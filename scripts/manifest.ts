@@ -28,8 +28,8 @@ import {
 	walk,
 } from './lib.ts';
 
-/** Licences the repository accepts: CC0 and CC BY, which allow redistribution and commercial use. */
-const ACCEPTED = /^(CC0-1\.0|CC-BY-[34]\.0)$/;
+/** Licences the repository accepts: CC0 and CC BY, and CC BY-NC for a generative service's model. */
+const ACCEPTED = /^(CC0-1\.0|CC-BY-[34]\.0|CC-BY-NC-4\.0)$/;
 const START = '<!-- manifest:start -->';
 const END = '<!-- manifest:end -->';
 
@@ -96,7 +96,7 @@ function replaceTable(readme: string, table: string): string {
 
 function checkAttribution(manifest: Manifest, problems: string[]) {
 	for (const [id, licence] of Object.entries(manifest.licenses)) {
-		if (!ACCEPTED.test(id)) problems.push(`Licence ${id} is not CC0 or CC BY`);
+		if (!ACCEPTED.test(id)) problems.push(`Licence ${id} is not CC0, CC BY or CC BY-NC`);
 		if (!existsSync(join(ROOT, licence.file))) problems.push(`Licence ${id}: ${licence.file} is missing`);
 	}
 	const ids = new Set<string>();
@@ -111,6 +111,9 @@ function checkAttribution(manifest: Manifest, problems: string[]) {
 		if (a.license.length === 0) problems.push(`${a.id}: no licence`);
 		for (const id of a.license) {
 			if (!manifest.licenses[id]) problems.push(`${a.id}: licence ${id} is not in the licence list`);
+		}
+		if (a.license.includes('CC-BY-NC-4.0') && !a.generator?.trim()) {
+			problems.push(`${a.id}: CC BY-NC is accepted only for a generative service's model, so it needs a generator`);
 		}
 		const partLicences = new Set(a.authors.map((p) => p.license).filter(Boolean));
 		if (partLicences.size > 0 && [...partLicences].sort().join() !== [...a.license].sort().join()) {

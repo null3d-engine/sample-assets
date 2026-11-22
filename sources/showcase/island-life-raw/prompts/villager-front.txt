@@ -1,0 +1,9 @@
+Endpoint: google/nano-banana-2.1 (fal.ai), text to image, 1K, PNG, square.
+Request id: 01a200dd-edcb-70d2-a4e2-d37292c93713
+Seed: not returned by the model.
+Kept: all one image.
+
+Prompt:
+Photorealistic full-body studio photograph of one middle-aged Mediterranean villager standing upright, facing the camera, arms hanging relaxed a little away from the body, feet together. Light blue linen shirt with rolled sleeves, dark navy cotton trousers, worn brown leather sandals. Warm tanned skin, short grey-black hair, clean-shaven. The whole person from head to feet fills about eighty per cent of the frame, centred. Plain light-grey seamless studio backdrop, soft even lighting, no shadow cast on the backdrop, no props, no text, no second person. Square 1:1.
+
+Inputs: none. The island's concept pictures stay in the owner's Higgsfield gallery (D-288 lists their job ids), so this shot is made from the brief's description of the island's summer look rather than from a crop of them. The concept shows people only at a distance, where no crop carries a whole figure.
