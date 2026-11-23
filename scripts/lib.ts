@@ -61,8 +61,8 @@ export interface Asset {
 	origin: Origin;
 	files: FileEntry[];
 	/**
-	 * The generative service that made the model, or the model it was finished from, such as
-	 * Tripo3D. Required for a CC BY-NC asset, the one case that licence is accepted for.
+	 * The generative service that made the model or sound, or the asset it was finished from, such as
+	 * Tripo3D or ElevenLabs. Required for a CC BY-NC asset, the one case that licence is accepted for.
 	 */
 	generator?: string;
 }
